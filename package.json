@@ -1,0 +1,52 @@
+{
+  "name": "kakadatabase-front",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://kakadatabase.orokonui.nz",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./node_modules --include-path ./src/assets/css src/ -o src/",
+    "watch-css": "node-sass-chokidar --include-path ./node_modules --include-path ./src/assets/css src/ -o src/ --watch --recursive",
+    "pretest": "npm run build-css",
+    "predeploy": "npm run build-css && npm run build",
+    "deploy": "s3-deploy './build/**' --cwd './build/' --region ap-southeast-2 --delete-removed --distId E1BB8RTE7MQFZY --invalidate '/index.html' --bucket kakadatabase.nz",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "^3.1.0",
+    "node-sass-chokidar": "^1.4.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "s3-deploy": "^1.4.0"
+  }
+}
