@@ -1,0 +1,40 @@
+@import "variables";
+
+header {
+  &.on-home {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    li.nav-item {
+      background-color: rgba($dark, 0.95);
+    }
+
+    .navbar-brand {
+      color: $white;
+    }
+
+    @include media-breakpoint-down(md) {
+      .navbar-collapse {
+        background-color: rgba($dark, 0.95);
+        padding: $spacer;
+      }
+      .navbar-toggler {
+        background-color: rgba($dark, 0.95);
+      }
+    }
+  }
+
+  nav {
+    .navbar-brand {
+      font-family: $headings-font-family;
+      img {
+        height: 48px;
+
+        @include media-breakpoint-up(sm) {
+          height: 64px;
+        }
+      }
+    }
+  }
+}

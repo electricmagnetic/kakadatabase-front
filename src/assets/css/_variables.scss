@@ -1,0 +1,14 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+
+$white: #fff;
+$black: #000;
+
+$navbar-dark-color: rgba($white, 0.75);
+$navbar-dark-hover-color: rgba($white, 0.6);
+
+$navbar-light-color: rgba($black, 0.75);
+$navbar-light-hover-color: rgba($black, 0.6);
+
+$navbar-nav-link-padding-x: 1rem;
+@import "node_modules/bootstrap/scss/variables";

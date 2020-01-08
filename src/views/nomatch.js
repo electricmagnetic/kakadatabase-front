@@ -5,7 +5,7 @@ const NoMatchPage = () => {
   return (
     <div className="NoMatchPage">
       <Helmet title="Page Not Found" />
-      <div className="container">
+      <div className="container py-5">
         <h1>Page Not Found</h1>
         <p>
           You seem to have encountered a page that doesn't exist. If you think
