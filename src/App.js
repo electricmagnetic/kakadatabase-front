@@ -1,19 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import HomePage from "./views/index";
+
+import NoMatchPage from "./views/nomatch";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          The future home of the
-          <br />
-          Orokonui Kākā Database
-        </p>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <main>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+
+            <Route component={NoMatchPage} />
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }
 
