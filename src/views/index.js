@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 
 import Banner from "../components/presentation/Banner";
+import Page from "../components/presentation/Page";
 
 import banner from "../assets/img/banner.jpg";
 
@@ -22,7 +23,14 @@ const HomePage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <p>The future home of the Orokonui Kākā Database</p>
+          <div className="row">
+            <div className="col-md-6">
+              <Page id={22} showTitle />
+            </div>
+            <div className="col-md-6">
+              <Page id={30} showTitle />
+            </div>
+          </div>
         </div>
       </section>
     </div>
