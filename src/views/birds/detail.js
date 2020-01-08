@@ -1,25 +1,27 @@
 import React from "react";
 import Helmet from "react-helmet";
 
-import Birds from "../../components/birds/Birds";
 import Banner from "../../components/presentation/Banner";
+import Bird from "../../components/birds/Bird";
 
-const BirdsPage = props => {
+const BirdDetailPage = ({ match }) => {
+  const slug = match.params.slug;
+
   return (
-    <div className="BirdsPage">
-      <Helmet title="Birds" />
+    <div className="BirdDetailPage">
+      <Helmet title={`#${slug} (Bird)`} />
       <section className="mb-5">
         <Banner size="small">
-          <h1>Birds</h1>
+          <h1>Bird #{slug}</h1>
         </Banner>
       </section>
       <section className="mb-5">
         <div className="container">
-          <Birds type="card" />
+          <Bird id={slug} type="page" />
         </div>
       </section>
     </div>
   );
 };
 
-export default BirdsPage;
+export default BirdDetailPage;

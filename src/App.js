@@ -6,7 +6,8 @@ import Footer from "./components/presentation/Footer";
 
 import HomePage from "./views/index";
 
-import BirdPage from "./views/birds/index";
+import BirdsPage from "./views/birds/index";
+import BirdDetailPage from "./views/birds/detail";
 
 import NoMatchPage from "./views/nomatch";
 
@@ -22,7 +23,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
 
-            <Route exact path="/birds" component={BirdPage} />
+            <Route exact path="/birds" component={BirdsPage} />
+            <Route exact path="/birds/:slug" component={BirdDetailPage} />
 
             <Route component={NoMatchPage} />
           </Switch>
