@@ -43,8 +43,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Licence
 
 Kākā Database  
-Copyright (C) 2019 Greenstone Limited  
-hello@greenstone.org.nz
+Copyright (C) 2020 Electric Magnetic Limited
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
