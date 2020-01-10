@@ -1,44 +1,55 @@
-# Kākā Database
+# kakadatabase-front
 
-README TODO
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based tool for tracking Orokonui Ecosanctuary's kākā.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+You will need to have Node >= 8 installed (and npm). Then run:  
+`npm install`
 
-### `npm start`
+## Running
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run on your local machine at <http://localhost:3000/> run:  
+`npm start`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You will need to ensure that the SCSS has been compiled beforehand by running:  
+`npm run watch-css`
 
-### `npm test`
+## Building
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To build the app for production use, run:  
+`npm build-css` then `npm run build`
 
-### `npm build`
+## Documentation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Some basic documentation can be generated using:
+`jsdoc src/**/*.js`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Layout
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `public/` Static HTML files included in build
+- `src/` Main source code
+  - `assets/` Static assets, including SCSS, grid tiles JSON and logos/banners
+  - `components/` View and form components
+    - `birds/` Components for fetching and displaying bird information
+    - `helpers/` Various helper components, including loading spinners, date formatting and field rendering
+    - `presentation/` Presentational components, including WordPress fetching
+  - `views/` Layouts constructed from components
 
-### `npm eject`
+## Deploying
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ensure you have the following:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The `awscli` Python package installed and configured with id and secret key.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To deploy to Amazon S3 (and hence make available online):  
+`npm run deploy`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**This will automatically build the SCSS and source code, and then invalidate the CloudFront cache.**
+
+## Bug reports
+
+Should be filed on the Kākā Database Trello board (not presently public)
 
 ## Licence
 
