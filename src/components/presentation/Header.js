@@ -14,7 +14,7 @@ const Header = ({ onHome }) => {
     "navbar",
     "navbar-expand-lg",
     "navbar-dark",
-    onHome ? "" : "bg-dark"
+    onHome ? "" : "bg-secondary"
   ];
 
   return (
@@ -44,8 +44,28 @@ const Header = ({ onHome }) => {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink exact to="/learn" className="nav-link">
+                  <i className="fa-fw fas fa-feather-alt mr-2"></i>About
+                  <span className="d-lg-none d-xl-inline"> Kākā</span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink to="/birds" className="nav-link">
-                  <i className="fa-fw fas fa-search mr-2"></i>Search Birds
+                  <i className="fa-fw fas fa-search mr-2"></i>
+                  <span className="d-lg-none d-xl-inline">Search </span>Birds
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/observations" className="nav-link">
+                  <i className="fa-fw fas fa-list-alt mr-2"></i>
+                  <span className="d-lg-none d-xl-inline">View </span>
+                  Observations
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/report" className="nav-link">
+                  <i className="fa-fw fas fa-eye mr-2"></i>Report
+                  <span className="d-lg-none d-xl-inline"> Observation</span>
                 </NavLink>
               </li>
             </ul>

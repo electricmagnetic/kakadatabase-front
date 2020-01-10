@@ -7,7 +7,7 @@ header {
     width: 100%;
 
     li.nav-item {
-      background-color: rgba($dark, 0.95);
+      background-color: $secondary;
     }
 
     .navbar-brand {
@@ -16,11 +16,11 @@ header {
 
     @include media-breakpoint-down(md) {
       .navbar-collapse {
-        background-color: rgba($dark, 0.95);
+        background-color: $secondary;
         padding: $spacer;
       }
       .navbar-toggler {
-        background-color: rgba($dark, 0.95);
+        background-color: $secondary;
       }
     }
   }
