@@ -10,8 +10,6 @@ import birdLink from "./helpers/birdLink";
   Presents a nicely formatted card for a given bird.
  */
 const BirdCard = ({ bird, ...others }) => {
-  const { profile } = bird;
-
   const { className } = others;
   const classNames = ["BirdCard"];
   if (className) classNames.push(className);
