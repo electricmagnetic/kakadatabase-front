@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 
+import Observations from "../../components/observations/Observations";
 import Banner from "../../components/presentation/Banner";
 
 const ObservationsPage = () => {
@@ -14,7 +15,12 @@ const ObservationsPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <p>Observations coming soon</p>
+          <div className="row">
+            <Observations
+              type="card"
+              className="col-6 col-sm-4 col-lg-3 mb-3"
+            />
+          </div>
         </div>
       </section>
     </div>

@@ -15,6 +15,7 @@ import BirdsPage from "./views/birds/index";
 import BirdDetailPage from "./views/birds/detail";
 
 import ObservationsPage from "./views/observations/index";
+import ObservationDetailPage from "./views/observations/detail";
 
 import ReportPage from "./views/report/index";
 
@@ -41,6 +42,11 @@ function App() {
             <Route exact path="/birds/:slug" component={BirdDetailPage} />
 
             <Route exact path="/observations" component={ObservationsPage} />
+            <Route
+              exact
+              path="/observations/:slug"
+              component={ObservationDetailPage}
+            />
 
             <Route exact path="/report" component={ReportPage} />
 
