@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 
 import Banner from "../../presentation/Banner";
 import generateSummary from "./helpers/generateSummary";
+import BirdObservations from "../BirdObservations";
 
 import "./ObservationPage.css";
 
@@ -58,6 +59,15 @@ const ObservationPage = ({ observation }) => {
             )}
           </div>
         </div>
+        <section className="mb-5">
+          <h2>Birds</h2>
+          <div className="row">
+            <BirdObservations
+              queryString={`?observation=${observation.id}`}
+              className="col-6 col-sm-4 col-lg-3 mb-3"
+            />
+          </div>
+        </section>
       </div>
     </div>
   );

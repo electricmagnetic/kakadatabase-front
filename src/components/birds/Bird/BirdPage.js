@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import Banner from "../../presentation/Banner";
 import generateSummary from "./helpers/generateSummary";
 import getPicture from "./helpers/getPicture";
+import BirdObservations from "../../observations/BirdObservations";
 
 import "./BirdPage.css";
 
@@ -74,6 +75,16 @@ const BirdPage = ({ bird }) => {
             )}
           </div>
         </div>
+        <section className="mb-5">
+          <h2>Observations</h2>
+          <div className="row">
+            <BirdObservations
+              queryString={`?bird=${bird.id}`}
+              className="col-6 col-sm-4 col-lg-3 mb-3"
+              type="observationCard"
+            />
+          </div>
+        </section>
       </div>
     </div>
   );

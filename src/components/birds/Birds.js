@@ -31,7 +31,7 @@ Birds.propTypes = {
 };
 
 Birds.defaultProps = {
-  type: "item"
+  type: "card"
 };
 
 export default connect(props => ({

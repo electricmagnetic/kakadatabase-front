@@ -35,7 +35,7 @@ Observations.propTypes = {
 };
 
 Observations.defaultProps = {
-  type: "item"
+  type: "card"
 };
 
 export default connect(props => ({
