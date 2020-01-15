@@ -10,6 +10,9 @@ import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/observations/`;
 
+/**
+  Observations fetches a series of observations using a given (optional) queryString and renders it using Observation.
+  */
 class Observations extends Component {
   render() {
     const { observationsFetch, ...others } = this.props;

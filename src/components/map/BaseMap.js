@@ -8,6 +8,10 @@ import { DEFAULT_ZOOM, DEFAULT_BOUNDS } from './defaults';
 
 import './BaseMap.css';
 
+/**
+  Creates a Leaflet map using Mapbox (lowest zoom levels), and the LINZ Data Service (Topo250, Topo50).
+  Layers have some overlap to allow for the new layers to load.
+  */
 class BaseMap extends Component {
   constructor(props) {
     super(props);

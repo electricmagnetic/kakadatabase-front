@@ -8,7 +8,7 @@ import Error from '../helpers/Error';
 const API_URL = `https://public-api.wordpress.com/wp/v2/sites/orokonui.kakadatabase.nz/pages/`;
 
 /**
-  Gets a page from the WordPress API
+  Gets a page from the WordPress API.
  */
 const Page = ({ id, pageFetch, showTitle }) => {
   if (pageFetch.pending) {

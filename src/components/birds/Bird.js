@@ -10,6 +10,11 @@ import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/birds/`;
 
+/**
+  Bird either:
+  - Renders a given bird as a specified type (e.g. card, page)
+  - Fetches a bird using the given id and renders as a specified type
+  */
 class Bird extends Component {
   constructor(props) {
     super(props);

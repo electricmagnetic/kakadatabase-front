@@ -9,6 +9,9 @@ import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/bird_observations/`;
 
+/**
+  BirdObservations fetches a series of bird observations using a given (optional) queryString and renders it using BirdObservation.
+  */
 class BirdObservations extends Component {
   render() {
     const { birdObservationsFetch, ...others } = this.props;
@@ -16,7 +19,7 @@ class BirdObservations extends Component {
     if (birdObservationsFetch.pending) {
       return <Loader />;
     } else if (birdObservationsFetch.rejected) {
-      return <Error message="Error fetching birdObservations" />;
+      return <Error message="Error fetching bird observations" />;
     } else if (birdObservationsFetch.fulfilled) {
       return birdObservationsFetch.value.results.map(birdObservation => (
         <BirdObservation birdObservation={birdObservation} key={birdObservation.id} {...others} />

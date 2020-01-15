@@ -1,5 +1,5 @@
 /**
-  Generates a summary string from a given bird
+  Generates a summary string from a given bird.
   */
 const generateSummary = bird => {
   var summary = [];

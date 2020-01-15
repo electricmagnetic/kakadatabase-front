@@ -10,6 +10,11 @@ import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/observations/`;
 
+/**
+  Observation either:
+  - Renders a given observation as a specified type (e.g. card, page)
+  - Fetches a observation using the given id and renders as a specified type
+  */
 class Observation extends Component {
   constructor(props) {
     super(props);

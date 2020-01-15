@@ -9,6 +9,9 @@ import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/birds/`;
 
+/**
+  Birds fetches a series of birds using a given (optional) queryString and renders it using Bird.
+  */
 class Birds extends Component {
   render() {
     const { birdsFetch, ...others } = this.props;

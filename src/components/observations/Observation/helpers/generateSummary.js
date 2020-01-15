@@ -1,5 +1,5 @@
 /**
-  Generates a summary string from a given observation
+  Generates a summary string from a given observation.
   */
 const generateSummary = observation => {
   return `${observation.observation_type} ${observation.number} ${

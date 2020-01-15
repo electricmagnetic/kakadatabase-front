@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+  Provides a consistent error message appearance across components.
+  */
 const Error = ({ message, children, info }) => {
   const classNames = ['Error', 'alert', info ? 'alert-faded' : 'alert-primary'];
   return (

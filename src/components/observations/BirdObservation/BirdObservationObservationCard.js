@@ -5,7 +5,7 @@ import Observation from '../Observation';
 
 /**
   Presents a card about a given Observation as part of an BirdObservation
-  (given a specified Bird, show the Observation)
+  (given a specified Bird, show the Observation).
  */
 const BirdObservationObservationCard = ({ birdObservation, ...others }) => {
   const { className } = others;

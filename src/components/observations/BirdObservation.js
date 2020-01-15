@@ -10,6 +10,11 @@ import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/birdObservations/`;
 
+/**
+  BirdObservation either:
+  - Renders a given bird observation as a specified type (e.g. card)
+  - Fetches a bird observation using the given id and renders as a specified type
+  */
 class BirdObservation extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +45,7 @@ class BirdObservation extends Component {
       if (birdObservationFetch.pending) {
         return <Loader />;
       } else if (birdObservationFetch.rejected) {
-        return <Error message="BirdObservation invalid" />;
+        return <Error message="Bird observation invalid" />;
       } else if (birdObservationFetch.fulfilled) {
         return this.renderBirdObservation(birdObservationFetch.value);
       }

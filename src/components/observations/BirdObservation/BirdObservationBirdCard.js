@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import Bird from '../../birds/Bird';
 
+/**
+  If bird is unknown/unmoderated, present information that is currently known.
+  */
 const UnknownBirdCard = ({ birdObservation }) => (
   <div className="card">
     <ul className="list-group list-group-flush">
@@ -21,9 +24,9 @@ const UnknownBirdCard = ({ birdObservation }) => (
 );
 
 /**
-  Presents a card about a given bird as part of an BirdObservation
-  (given a specified Observation, show either the Bird (if known) or given information about a bird)
- */
+  Presents a card about a given bird as part of an BirdObservation (given a specified Observation,
+  show either the Bird (if known) or given information about a bird).
+  */
 const BirdObservationBirdCard = ({ birdObservation, ...others }) => {
   const { className } = others;
   const classNames = ['BirdObservationBirdCard'];

@@ -15,21 +15,24 @@ import './ObservationsMap.css';
   - If `single` false, provides an interactive map with popups and a consistent circle size.
   */
 class ObservationsMap extends Component {
+  /**
+    Uses a default set of bounds to initialise map.
+    */
   constructor(props) {
     super(props);
 
     this.state = {
-      gridBounds: DEFAULT_BOUNDS,
+      featureBounds: DEFAULT_BOUNDS,
     };
 
-    this.updateGridBounds = this.updateGridBounds.bind(this);
+    this.updateFeatureBounds = this.updateFeatureBounds.bind(this);
   }
 
   /**
-    Update the gridBounds in state
-  */
-  updateGridBounds(event) {
-    this.setState({ gridBounds: event.target.getBounds() });
+    Updates featureBounds in state on a given event.
+    */
+  updateFeatureBounds(event) {
+    this.setState({ featureBounds: event.target.getBounds() });
   }
 
   /**
@@ -80,10 +83,10 @@ class ObservationsMap extends Component {
       <div className="ObservationsMap">
         <BaseMap
           boundsOptions={boundsOptions}
-          bounds={this.state.gridBounds}
+          bounds={this.state.featureBounds}
           {...(single && disableInteractivityProperties)}
         >
-          <FeatureGroup onAdd={event => this.updateGridBounds(event)}>
+          <FeatureGroup onAdd={event => this.updateFeatureBounds(event)}>
             {single
               ? observations.map(observation => this.createCircle(observation))
               : observations.map(observation => this.createCircleMarker(observation))}
