@@ -11,8 +11,6 @@ import "./ObservationPage.css";
   Presents a nicely formatted page for a given observation.
  */
 const ObservationPage = ({ observation }) => {
-  const { profile } = observation;
-
   return (
     <div className="ObservationPage">
       <Helmet title={`#${observation.id} (Observation)`} />
