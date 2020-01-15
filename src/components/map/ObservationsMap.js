@@ -70,6 +70,7 @@ class ObservationsMap extends Component {
       touchZoom: false,
       scrollWheelZoom: false,
       boxZoom: false,
+      tap: false,
     };
     const boundsOptions = {
       maxZoom: 13,
