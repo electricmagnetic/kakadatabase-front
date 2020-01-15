@@ -40,31 +40,34 @@ const Header = ({ onHome }) => {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <NavLink exact to="/" className="nav-link">
-                  <i className="fa-fw fas fa-home mr-2"></i>Home
+                  <i className="fa-fw fas fa-home mr-2" />
+                  Home
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink exact to="/learn" className="nav-link">
-                  <i className="fa-fw fas fa-feather-alt mr-2"></i>About
+                  <i className="fa-fw fas fa-feather-alt mr-2" />
+                  About
                   <span className="d-lg-none d-xl-inline"> Kākā</span>
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/birds" className="nav-link">
-                  <i className="fa-fw fas fa-search mr-2"></i>
+                  <i className="fa-fw fas fa-search mr-2" />
                   <span className="d-lg-none d-xl-inline">Search </span>Birds
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/observations" className="nav-link">
-                  <i className="fa-fw fas fa-list-alt mr-2"></i>
+                  <i className="fa-fw fas fa-list-alt mr-2" />
                   <span className="d-lg-none d-xl-inline">View </span>
                   Observations
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/report" className="nav-link">
-                  <i className="fa-fw fas fa-eye mr-2"></i>Report
+                  <i className="fa-fw fas fa-eye mr-2" />
+                  Report
                   <span className="d-lg-none d-xl-inline"> Observation</span>
                 </NavLink>
               </li>
