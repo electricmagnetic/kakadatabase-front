@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-refetch";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-refetch';
+import PropTypes from 'prop-types';
 
-import BirdObservationBirdCard from "./BirdObservation/BirdObservationBirdCard";
-import BirdObservationObservationCard from "./BirdObservation/BirdObservationObservationCard";
+import BirdObservationBirdCard from './BirdObservation/BirdObservationBirdCard';
+import BirdObservationObservationCard from './BirdObservation/BirdObservationObservationCard';
 
-import Loader from "../helpers/Loader";
-import Error from "../helpers/Error";
+import Loader from '../helpers/Loader';
+import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/birdObservations/`;
 
@@ -19,20 +19,10 @@ class BirdObservation extends Component {
   renderBirdObservation(birdObservation) {
     const { type, ...others } = this.props;
     switch (type) {
-      case "observationCard":
-        return (
-          <BirdObservationObservationCard
-            birdObservation={birdObservation}
-            {...others}
-          />
-        );
+      case 'observationCard':
+        return <BirdObservationObservationCard birdObservation={birdObservation} {...others} />;
       default:
-        return (
-          <BirdObservationBirdCard
-            birdObservation={birdObservation}
-            {...others}
-          />
-        );
+        return <BirdObservationBirdCard birdObservation={birdObservation} {...others} />;
     }
   }
 
@@ -41,8 +31,7 @@ class BirdObservation extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.id !== prevProps.id)
-      this.props.lazyFetchBirdObservation(this.props.id);
+    if (this.props.id !== prevProps.id) this.props.lazyFetchBirdObservation(this.props.id);
   }
 
   render() {
@@ -64,15 +53,15 @@ class BirdObservation extends Component {
 BirdObservation.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string.isRequired,
-  birdObservation: PropTypes.object
+  birdObservation: PropTypes.object,
 };
 
 BirdObservation.defaultProps = {
-  type: "birdCard"
+  type: 'birdCard',
 };
 
 export default connect(props => ({
   lazyFetchBirdObservation: id => ({
-    birdObservationFetch: `${API_URL}${props.id}/`
-  })
+    birdObservationFetch: `${API_URL}${props.id}/`,
+  }),
 }))(BirdObservation);

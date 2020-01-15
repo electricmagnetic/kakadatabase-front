@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Map as LeafletMap, TileLayer } from "react-leaflet";
+import React, { Component } from 'react';
+import { Map as LeafletMap, TileLayer } from 'react-leaflet';
 
-import "leaflet/dist/leaflet.css";
-import "leaflet/dist/leaflet";
+import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet';
 
-import { DEFAULT_ZOOM, DEFAULT_BOUNDS } from "./defaults";
+import { DEFAULT_ZOOM, DEFAULT_BOUNDS } from './defaults';
 
-import "./BaseMap.css";
+import './BaseMap.css';
 
 class BaseMap extends Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class BaseMap extends Component {
     this.state = {
       viewport: {
         center: DEFAULT_BOUNDS.getCenter(),
-        zoom: DEFAULT_ZOOM
-      }
+        zoom: DEFAULT_ZOOM,
+      },
     };
   }
 

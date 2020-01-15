@@ -1,8 +1,8 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import Observations from "../../components/observations/Observations";
-import Banner from "../../components/presentation/Banner";
+import Observations from '../../components/observations/Observations';
+import Banner from '../../components/presentation/Banner';
 
 const ObservationsPage = () => {
   return (
@@ -22,10 +22,7 @@ const ObservationsPage = () => {
         <div className="container">
           <h2>Recent Observations</h2>
           <div className="row">
-            <Observations
-              type="card"
-              className="col-6 col-sm-4 col-lg-3 mb-3"
-            />
+            <Observations type="card" className="col-6 col-sm-4 col-lg-3 mb-3" />
           </div>
         </div>
       </section>

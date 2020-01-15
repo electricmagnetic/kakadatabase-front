@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-import Banner from "../../presentation/Banner";
-import generateSummary from "./helpers/generateSummary";
-import getPicture from "./helpers/getPicture";
-import BirdObservations from "../../observations/BirdObservations";
+import Banner from '../../presentation/Banner';
+import generateSummary from './helpers/generateSummary';
+import getPicture from './helpers/getPicture';
+import BirdObservations from '../../observations/BirdObservations';
 
-import "./BirdPage.css";
+import './BirdPage.css';
 
 /**
   Presents a nicely formatted page for a given bird.
@@ -28,7 +28,7 @@ const BirdPage = ({ bird }) => {
         <div className="row">
           <div className="col-md-4 order-md-9 mb-5">
             <img
-              src={getPicture(bird, "large")}
+              src={getPicture(bird, 'large')}
               alt={bird.label}
               className="img-fluid img-thumbnail"
             />
@@ -58,11 +58,7 @@ const BirdPage = ({ bird }) => {
                     <dt>Sponsor</dt>
                     <dd>
                       {profile.sponsor_website ? (
-                        <a
-                          href={profile.sponsor_website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href={profile.sponsor_website} target="_blank" rel="noopener noreferrer">
                           {profile.sponsor_name}
                         </a>
                       ) : (
@@ -91,7 +87,7 @@ const BirdPage = ({ bird }) => {
 };
 
 BirdPage.propTypes = {
-  bird: PropTypes.object.isRequired
+  bird: PropTypes.object.isRequired,
 };
 
 export default BirdPage;

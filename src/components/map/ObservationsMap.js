@@ -1,19 +1,13 @@
-import React, { Component } from "react";
-import {
-  FeatureGroup,
-  ScaleControl,
-  Circle,
-  CircleMarker,
-  Popup
-} from "react-leaflet";
-import { GeoJSON as LeafletGeoJSON } from "leaflet";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { FeatureGroup, ScaleControl, Circle, CircleMarker, Popup } from 'react-leaflet';
+import { GeoJSON as LeafletGeoJSON } from 'leaflet';
+import PropTypes from 'prop-types';
 
-import BaseMap from "./BaseMap";
-import { DEFAULT_BOUNDS } from "./defaults";
-import Observation from "../observations/Observation";
+import BaseMap from './BaseMap';
+import { DEFAULT_BOUNDS } from './defaults';
+import Observation from '../observations/Observation';
 
-import "./ObservationsMap.css";
+import './ObservationsMap.css';
 
 /**
   Presents a nicely formatted map of given observations:
@@ -25,7 +19,7 @@ class ObservationsMap extends Component {
     super(props);
 
     this.state = {
-      gridBounds: DEFAULT_BOUNDS
+      gridBounds: DEFAULT_BOUNDS,
     };
 
     this.updateGridBounds = this.updateGridBounds.bind(this);
@@ -43,9 +37,7 @@ class ObservationsMap extends Component {
     */
   createCircleMarker = observation => (
     <CircleMarker
-      center={LeafletGeoJSON.coordsToLatLng(
-        observation.point_location.coordinates
-      )}
+      center={LeafletGeoJSON.coordsToLatLng(observation.point_location.coordinates)}
       color="orange"
       key={observation.id}
       radius={10}
@@ -61,9 +53,7 @@ class ObservationsMap extends Component {
     */
   createCircle = observation => (
     <Circle
-      center={LeafletGeoJSON.coordsToLatLng(
-        observation.point_location.coordinates
-      )}
+      center={LeafletGeoJSON.coordsToLatLng(observation.point_location.coordinates)}
       color="red"
       key={observation.id}
       radius={observation.precision}
@@ -79,10 +69,10 @@ class ObservationsMap extends Component {
       doubleClickZoom: false,
       touchZoom: false,
       scrollWheelZoom: false,
-      boxZoom: false
+      boxZoom: false,
     };
     const boundsOptions = {
-      maxZoom: 13
+      maxZoom: 13,
     };
 
     return (
@@ -95,9 +85,7 @@ class ObservationsMap extends Component {
           <FeatureGroup onAdd={event => this.updateGridBounds(event)}>
             {single
               ? observations.map(observation => this.createCircle(observation))
-              : observations.map(observation =>
-                  this.createCircleMarker(observation)
-                )}
+              : observations.map(observation => this.createCircleMarker(observation))}
           </FeatureGroup>
           <ScaleControl />
         </BaseMap>
@@ -108,11 +96,11 @@ class ObservationsMap extends Component {
 
 ObservationsMap.propTypes = {
   observations: PropTypes.array.isRequired,
-  single: PropTypes.bool.isRequired
+  single: PropTypes.bool.isRequired,
 };
 
 ObservationsMap.defaultProps = {
-  single: false
+  single: false,
 };
 
 export default ObservationsMap;

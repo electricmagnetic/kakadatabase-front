@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Error = ({ message, children, info }) => {
-  const classNames = ["Error", "alert", info ? "alert-faded" : "alert-primary"];
+  const classNames = ['Error', 'alert', info ? 'alert-faded' : 'alert-primary'];
   return (
-    <div className={classNames.join(" ")} role="alert">
+    <div className={classNames.join(' ')} role="alert">
       <p className="m-0">
         <em>{message}</em>
       </p>
@@ -16,12 +16,12 @@ const Error = ({ message, children, info }) => {
 Error.propTypes = {
   message: PropTypes.string.isRequired,
   info: PropTypes.bool.isRequired,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Error.defaultProps = {
-  message: "Error",
-  info: false
+  message: 'Error',
+  info: false,
 };
 
 export default Error;

@@ -1,25 +1,20 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
-import logo from "../../assets/img/logo.svg";
-import "./Header.css";
+import logo from '../../assets/img/logo.svg';
+import './Header.css';
 
 /**
   Main header. Different CSS/functionality behaviour can be toggled by prop `onHome`.
   */
 const Header = ({ onHome }) => {
-  const headerClassNames = ["header", onHome ? "on-home" : "not-home"];
+  const headerClassNames = ['header', onHome ? 'on-home' : 'not-home'];
 
-  const navClassNames = [
-    "navbar",
-    "navbar-expand-lg",
-    "navbar-dark",
-    onHome ? "" : "bg-secondary"
-  ];
+  const navClassNames = ['navbar', 'navbar-expand-lg', 'navbar-dark', onHome ? '' : 'bg-secondary'];
 
   return (
-    <header className={headerClassNames.join(" ")}>
-      <nav className={navClassNames.join(" ")}>
+    <header className={headerClassNames.join(' ')}>
+      <nav className={navClassNames.join(' ')}>
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="Kākā Database" className="pr-3" />
@@ -80,7 +75,7 @@ const Header = ({ onHome }) => {
 };
 
 Header.defaultProps = {
-  onHome: false
+  onHome: false,
 };
 
 /**

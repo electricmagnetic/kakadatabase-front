@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-refetch";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-refetch';
+import PropTypes from 'prop-types';
 
-import ObservationPage from "./Observation/ObservationPage";
-import ObservationCard from "./Observation/ObservationCard";
+import ObservationPage from './Observation/ObservationPage';
+import ObservationCard from './Observation/ObservationCard';
 
-import Loader from "../helpers/Loader";
-import Error from "../helpers/Error";
+import Loader from '../helpers/Loader';
+import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/observations/`;
 
@@ -19,7 +19,7 @@ class Observation extends Component {
   renderObservation(observation) {
     const { type, ...others } = this.props;
     switch (type) {
-      case "card":
+      case 'card':
         return <ObservationCard observation={observation} {...others} />;
       default:
         return <ObservationPage observation={observation} {...others} />;
@@ -31,8 +31,7 @@ class Observation extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.id !== prevProps.id)
-      this.props.lazyFetchObservation(this.props.id);
+    if (this.props.id !== prevProps.id) this.props.lazyFetchObservation(this.props.id);
   }
 
   render() {
@@ -54,15 +53,15 @@ class Observation extends Component {
 Observation.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string.isRequired,
-  observation: PropTypes.object
+  observation: PropTypes.object,
 };
 
 Observation.defaultProps = {
-  type: "page"
+  type: 'page',
 };
 
 export default connect(props => ({
   lazyFetchObservation: id => ({
-    observationFetch: `${API_URL}${props.id}/`
-  })
+    observationFetch: `${API_URL}${props.id}/`,
+  }),
 }))(Observation);

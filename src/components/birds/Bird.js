@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-refetch";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-refetch';
+import PropTypes from 'prop-types';
 
-import BirdPage from "./Bird/BirdPage";
-import BirdCard from "./Bird/BirdCard";
+import BirdPage from './Bird/BirdPage';
+import BirdCard from './Bird/BirdCard';
 
-import Loader from "../helpers/Loader";
-import Error from "../helpers/Error";
+import Loader from '../helpers/Loader';
+import Error from '../helpers/Error';
 
 const API_URL = `https://data.kakadatabase.nz/birds/`;
 
@@ -19,7 +19,7 @@ class Bird extends Component {
   renderBird(bird) {
     const { type, ...others } = this.props;
     switch (type) {
-      case "card":
+      case 'card':
         return <BirdCard bird={bird} {...others} />;
       default:
         return <BirdPage bird={bird} {...others} />;
@@ -53,15 +53,15 @@ class Bird extends Component {
 Bird.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string.isRequired,
-  bird: PropTypes.object
+  bird: PropTypes.object,
 };
 
 Bird.defaultProps = {
-  type: "page"
+  type: 'page',
 };
 
 export default connect(props => ({
   lazyFetchBird: id => ({
-    birdFetch: `${API_URL}${props.id}/`
-  })
+    birdFetch: `${API_URL}${props.id}/`,
+  }),
 }))(Bird);

@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-refetch";
-import PropTypes from "prop-types";
+import React from 'react';
+import { connect } from 'react-refetch';
+import PropTypes from 'prop-types';
 
-import Loader from "../helpers/Loader";
-import Error from "../helpers/Error";
+import Loader from '../helpers/Loader';
+import Error from '../helpers/Error';
 
 const API_URL = `https://public-api.wordpress.com/wp/v2/sites/orokonui.kakadatabase.nz/pages/`;
 
@@ -20,9 +20,7 @@ const Page = ({ id, pageFetch, showTitle }) => {
     return (
       <div className="Page">
         <div className="Page-content" key={page.id}>
-          {showTitle && (
-            <h2 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
-          )}
+          {showTitle && <h2 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />}
           <p dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
         </div>
       </div>
@@ -32,13 +30,13 @@ const Page = ({ id, pageFetch, showTitle }) => {
 
 Page.propTypes = {
   id: PropTypes.number.isRequired,
-  showTitle: PropTypes.bool.isRequired
+  showTitle: PropTypes.bool.isRequired,
 };
 
 Page.defaultProps = {
-  showTitle: false
+  showTitle: false,
 };
 
 export default connect(props => ({
-  pageFetch: `${API_URL}${props.id}/`
+  pageFetch: `${API_URL}${props.id}/`,
 }))(Page);

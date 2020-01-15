@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import "./Loader.css";
+import './Loader.css';
 
 const Loader = ({ small }) => {
-  const loaderClasses = ["Loader", small && "small"];
-  return <div className={loaderClasses.join(" ")} />;
+  const loaderClasses = ['Loader', small && 'small'];
+  return <div className={loaderClasses.join(' ')} />;
 };
 
 Loader.defaultProps = {
-  small: false
+  small: false,
 };
 
 export default Loader;

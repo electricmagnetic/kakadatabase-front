@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-import Banner from "../../presentation/Banner";
-import generateSummary from "./helpers/generateSummary";
-import BirdObservations from "../BirdObservations";
-import ObservationsMap from "../../map/ObservationsMap";
+import Banner from '../../presentation/Banner';
+import generateSummary from './helpers/generateSummary';
+import BirdObservations from '../BirdObservations';
+import ObservationsMap from '../../map/ObservationsMap';
 
-import "./ObservationPage.css";
+import './ObservationPage.css';
 
 /**
   Presents a nicely formatted page for a given observation.
@@ -78,7 +78,7 @@ const ObservationPage = ({ observation }) => {
 };
 
 ObservationPage.propTypes = {
-  observation: PropTypes.object.isRequired
+  observation: PropTypes.object.isRequired,
 };
 
 export default ObservationPage;

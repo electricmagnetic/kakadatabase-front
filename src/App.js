@@ -1,25 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Header, HomePageHeader } from "./components/presentation/Header";
-import Footer from "./components/presentation/Footer";
+import { Header, HomePageHeader } from './components/presentation/Header';
+import Footer from './components/presentation/Footer';
 
-import HomePage from "./views/index";
+import HomePage from './views/index';
 
-import AboutPage from "./views/about";
-import LegalPage from "./views/legal";
+import AboutPage from './views/about';
+import LegalPage from './views/legal';
 
-import LearnPage from "./views/learn/index";
+import LearnPage from './views/learn/index';
 
-import BirdsPage from "./views/birds/index";
-import BirdDetailPage from "./views/birds/detail";
+import BirdsPage from './views/birds/index';
+import BirdDetailPage from './views/birds/detail';
 
-import ObservationsPage from "./views/observations/index";
-import ObservationDetailPage from "./views/observations/detail";
+import ObservationsPage from './views/observations/index';
+import ObservationDetailPage from './views/observations/detail';
 
-import ReportPage from "./views/report/index";
+import ReportPage from './views/report/index';
 
-import NoMatchPage from "./views/nomatch";
+import NoMatchPage from './views/nomatch';
 
 function App() {
   return (
@@ -42,11 +42,7 @@ function App() {
             <Route exact path="/birds/:slug" component={BirdDetailPage} />
 
             <Route exact path="/observations" component={ObservationsPage} />
-            <Route
-              exact
-              path="/observations/:slug"
-              component={ObservationDetailPage}
-            />
+            <Route exact path="/observations/:slug" component={ObservationDetailPage} />
 
             <Route exact path="/report" component={ReportPage} />
 

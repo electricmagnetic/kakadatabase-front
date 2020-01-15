@@ -1,7 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import "./Footer.css";
+import './Footer.css';
 
 /**
   Main footer. Different CSS/functionality behaviour can be toggled by prop `onSubmitPage`.
@@ -36,12 +36,8 @@ const Footer = () => {
             <p>
               <small>
                 <em>
-                  A project of{" "}
-                  <a
-                    href="http://orokonui.nz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  A project of{' '}
+                  <a href="http://orokonui.nz" target="_blank" rel="noopener noreferrer">
                     Orokonui Ecosanctuary
                   </a>
                 </em>
