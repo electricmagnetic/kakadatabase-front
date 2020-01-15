@@ -33,6 +33,7 @@ Some basic documentation can be generated using:
   - `components/` View and form components
     - `birds/` Components for fetching and displaying bird information
     - `helpers/` Various helper components, including loading spinners, date formatting and field rendering
+    - `map/` Map components, including Mapbox/LINZ base maps and Observation mapping
     - `observations/ Components for fetching and displaying observation information
     - `presentation/` Presentational components, including WordPress fetching
   - `views/` Layouts constructed from components

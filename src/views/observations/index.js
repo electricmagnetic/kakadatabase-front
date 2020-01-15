@@ -15,6 +15,12 @@ const ObservationsPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
+          <Observations type="map" />
+        </div>
+      </section>
+      <section className="mb-5">
+        <div className="container">
+          <h2>Recent Observations</h2>
           <div className="row">
             <Observations
               type="card"

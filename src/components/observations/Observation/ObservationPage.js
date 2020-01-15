@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import Banner from "../../presentation/Banner";
 import generateSummary from "./helpers/generateSummary";
 import BirdObservations from "../BirdObservations";
+import ObservationsMap from "../../map/ObservationsMap";
 
 import "./ObservationPage.css";
 
@@ -22,7 +23,7 @@ const ObservationPage = ({ observation }) => {
       </section>
       <div className="container">
         <div className="row">
-          <div className="col-md-12 mb-5">
+          <div className="col-md-6 mb-5">
             <dl>
               <dt>When</dt>
               <dd>
@@ -57,6 +58,9 @@ const ObservationPage = ({ observation }) => {
                 <p className="behaviour">{observation.behaviour}</p>
               </section>
             )}
+          </div>
+          <div className="col-md-6 mb-5">
+            <ObservationsMap observations={[observation]} single />
           </div>
         </div>
         <section className="mb-5">
