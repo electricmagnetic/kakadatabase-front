@@ -18,6 +18,7 @@ import ObservationsPage from './views/observations/index';
 import ObservationDetailPage from './views/observations/detail';
 
 import ReportPage from './views/report/index';
+import ReportSuccessPage from './views/report/success';
 
 import NoMatchPage from './views/nomatch';
 
@@ -45,6 +46,8 @@ function App() {
             <Route exact path="/observations/:slug" component={ObservationDetailPage} />
 
             <Route exact path="/report" component={ReportPage} />
+            <Route exact path="/report/success" component={ReportSuccessPage} />
+            <Route exact path="/report/success/:slug" component={ReportSuccessPage} />
 
             <Route component={NoMatchPage} />
           </Switch>

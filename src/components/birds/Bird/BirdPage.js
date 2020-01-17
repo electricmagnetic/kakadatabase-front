@@ -21,7 +21,7 @@ const BirdPage = ({ bird }) => {
       <section className="mb-5">
         <Banner size="small">
           <h1>{bird.label}</h1>
-          <p className="lead">{generateSummary(bird)}</p>
+          <p className="lead m-0">{generateSummary(bird)}</p>
         </Banner>
       </section>
       <div className="container">
