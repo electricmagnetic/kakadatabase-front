@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import ReportForm from '../../components/report/ReportForm';
 import Banner from '../../components/presentation/Banner';
 
 const ReportPage = () => {
@@ -13,9 +14,7 @@ const ReportPage = () => {
         </Banner>
       </section>
       <section className="mb-5">
-        <div className="container">
-          <p>Report coming soon</p>
-        </div>
+        <ReportForm />
       </section>
     </div>
   );

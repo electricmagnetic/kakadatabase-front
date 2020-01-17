@@ -36,6 +36,7 @@ Some basic documentation can be generated using:
     - `map/` Map components, including Mapbox/LINZ base maps and Observation mapping
     - `observations/ Components for fetching and displaying observation information
     - `presentation/` Presentational components, including WordPress fetching
+    - `report/` Observation submission form components and fieldsets
   - `views/` Layouts constructed from components
 
 ## Deploying
