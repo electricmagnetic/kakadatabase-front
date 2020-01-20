@@ -57,7 +57,7 @@ export const fullValidationSchema = yup
       .of(birdObservationValidationSchema)
       .max(maximumBirdObservations, maxBirdObservationMessage),
     comments: yup.string(),
-    observation_type: yup.string().required(),
+    observation_type: yup.string().required(requiredMessage),
     point_location: yup.object({
       type: yup
         .string()
