@@ -8,7 +8,7 @@ import Error from '../../helpers/Error';
 const Messages = ({ isValid, submitCount, errors }) => {
   const yupRejected = submitCount > 0 && errors && !isValid;
 
-  if (yupRejected) window.scrollTo(0, 0);
+  //if (yupRejected) window.scrollTo(0, 0);
 
   return (
     <div className="messages">
