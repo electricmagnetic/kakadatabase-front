@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
+import FormatDateTime from '../../helpers/FormatDateTime';
 import Banner from '../../presentation/Banner';
 import generateSummary from './helpers/generateSummary';
 import BirdObservations from '../BirdObservations';
@@ -27,7 +28,9 @@ const ObservationPage = ({ observation }) => {
             <dl>
               <dt>When</dt>
               <dd>
-                {observation.date_sighted} {observation.time_sighted}
+                <FormatDateTime format="longDateTime">
+                  {observation.date_sighted} {observation.time_sighted}
+                </FormatDateTime>
               </dd>
               <dt>Where</dt>
               <dd>

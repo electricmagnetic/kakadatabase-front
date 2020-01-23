@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import FormatDateTime from '../../helpers/FormatDateTime';
 import generateSummary from './helpers/generateSummary';
 
 /**
@@ -22,7 +23,9 @@ const ObservationCard = ({ observation, ...others }) => {
             </h2>
           </li>
           <li className="list-group-item">
-            {observation.date_sighted} {observation.time_sighted}
+            <FormatDateTime calendar>
+              {observation.date_sighted} {observation.time_sighted}
+            </FormatDateTime>
           </li>
           <li className="list-group-item">
             {observation.geocode}, {observation.region}
