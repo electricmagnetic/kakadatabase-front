@@ -11,6 +11,7 @@ const ObservationsPage = () => {
       <section className="mb-5">
         <Banner size="small">
           <h1>View Observations</h1>
+          <p className="lead">Recent 100 observations</p>
         </Banner>
       </section>
       <section className="mb-5">
@@ -20,7 +21,6 @@ const ObservationsPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <h2>Recent Observations</h2>
           <div className="row">
             <Observations type="card" className="col-6 col-sm-4 col-lg-3 mb-3" />
           </div>

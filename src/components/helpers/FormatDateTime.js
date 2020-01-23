@@ -14,7 +14,7 @@ const FormatDateTime = ({ format, calendar, children }) => {
     nextDay: '[Tomorrow at] LT',
     lastWeek: '[Last] dddd [at] LT',
     nextWeek: 'dddd [at] LT',
-    sameElse: 'ddd D MMM YYYY[,] LT',
+    sameElse: 'D MMM YYYY[,] LT',
   };
 
   if (calendar) {

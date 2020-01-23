@@ -5,6 +5,19 @@ import { Link } from 'react-router-dom';
 import FormatDateTime from '../../helpers/FormatDateTime';
 import generateSummary from './helpers/generateSummary';
 
+import './ObservationCard.css';
+
+const ListItem = ({ icon, children }) => (
+  <li className="list-group-item">
+    <div className="row">
+      <div className="col-1">
+        <i className={`fas fa-fw ${icon} mr-2`} />
+      </div>
+      <div className="col">{children}</div>
+    </div>
+  </li>
+);
+
 /**
   Presents a nicely formatted card for a given observation.
  */
@@ -15,23 +28,26 @@ const ObservationCard = ({ observation, ...others }) => {
 
   return (
     <div className={classNames.join(' ')}>
-      <div className="card">
+      <div className="card card-dull">
+        <h2 className="sr-only">Observation {observation.id}</h2>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <h2 className="card-title h5 m-0">
-              <Link to={`/observations/${observation.id}`}>{`#${observation.id}`}</Link>
-            </h2>
-          </li>
-          <li className="list-group-item">
+          <ListItem icon="fa-map-marker-alt">
+            {observation.geocode}
+            <br />
+            <small>{observation.region}</small>
+          </ListItem>
+          <ListItem icon="fa-calendar">
             <FormatDateTime calendar>
               {observation.date_sighted} {observation.time_sighted}
             </FormatDateTime>
-          </li>
-          <li className="list-group-item">
-            {observation.geocode}, {observation.region}
-          </li>
-          <li className="list-group-item">{generateSummary(observation)}</li>
-          <li className="list-group-item">{observation.contributor}</li>
+          </ListItem>
+          <ListItem icon="fa-feather-alt">{generateSummary(observation)}</ListItem>
+          <ListItem icon="fa-user">
+            {observation.contributor} ({`#${observation.id}`})
+          </ListItem>
+          <ListItem icon="fa-info-circle">
+            <Link to={`/observations/${observation.id}`}>View Observation</Link>
+          </ListItem>
         </ul>
       </div>
     </div>

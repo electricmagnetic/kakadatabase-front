@@ -1,2 +1,13 @@
-@import "variables";
-@import "node_modules/bootstrap/scss/bootstrap";
+@import 'variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.card-dull {
+  &.card,
+  .list-group-item {
+    background-color: lighten($brown-faded, 10%);
+    border-color: darken($brown-faded, 5%);
+    i {
+      color: darken($brown-faded, 50%);
+    }
+  }
+}

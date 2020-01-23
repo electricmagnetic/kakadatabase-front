@@ -16,7 +16,7 @@ const BirdCard = ({ bird, ...others }) => {
 
   return (
     <div className={classNames.join(' ')}>
-      <div className="card">
+      <div className="card card-dull">
         <Link to={birdLink(bird)}>
           <img src={getPicture(bird)} alt={bird.label} className="card-img-top" />
         </Link>
