@@ -22,7 +22,7 @@ const ObservationsPage = () => {
       <section className="mb-5">
         <div className="container">
           <div className="row">
-            <Observations type="card" className="col-6 col-sm-4 col-lg-3 mb-3" />
+            <Observations type="card" className="col-sm-6 col-md-4 col-lg-3 mb-3" />
           </div>
         </div>
       </section>
