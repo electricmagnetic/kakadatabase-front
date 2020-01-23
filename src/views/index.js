@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Banner from '../components/presentation/Banner';
 import Page from '../components/presentation/Page';
+import BirdObservations from '../components/observations/BirdObservations';
 
 import banner from '../assets/img/banner.jpg';
 
@@ -40,6 +41,25 @@ const HomePage = () => {
             </div>
             <div className="col-md-6">
               <Page id={30} showTitle />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mb-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <h2>Recently Observed</h2>
+              <div className="row">
+                <BirdObservations
+                  type="feature"
+                  queryString="?has_bird=true&limit=4"
+                  className="col-6 col-sm-3 col-md-6 col-lg-3 mb-3"
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <Page id={52} showTitle />
             </div>
           </div>
         </div>

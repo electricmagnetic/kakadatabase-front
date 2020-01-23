@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 
 import BirdObservationBirdCard from './BirdObservation/BirdObservationBirdCard';
 import BirdObservationObservationCard from './BirdObservation/BirdObservationObservationCard';
+import BirdObservationFeature from './BirdObservation/BirdObservationFeature';
 
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-const API_URL = `https://data.kakadatabase.nz/birdObservations/`;
+const API_URL = `https://data.kakadatabase.nz/bird_observations/`;
 
 /**
   BirdObservation either:
@@ -24,6 +25,8 @@ class BirdObservation extends Component {
   renderBirdObservation(birdObservation) {
     const { type, ...others } = this.props;
     switch (type) {
+      case 'feature':
+        return <BirdObservationFeature birdObservation={birdObservation} {...others} />;
       case 'observationCard':
         return <BirdObservationObservationCard birdObservation={birdObservation} {...others} />;
       default:
