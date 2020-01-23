@@ -16,7 +16,11 @@ const BirdsPage = props => {
       <section className="mb-5">
         <div className="container">
           <div className="row">
-            <Birds type="card" className="col-6 col-sm-4 col-lg-3 mb-3" />
+            <Birds
+              type="card"
+              className="col-6 col-sm-4 col-lg-3 mb-3"
+              queryString="?ordering=profile,name"
+            />
           </div>
         </div>
       </section>
