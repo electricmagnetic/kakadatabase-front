@@ -11,7 +11,7 @@ const getPicture = (bird, size = 'thumbnail') => {
     large: placeholderLarge,
     default: placeholderThumbnail,
   };
-  const { profile } = bird;
+  const profile = (bird && bird.profile) || null; // Allows for no bird being provided (i.e. shows placeholder)
 
   if (profile && profile.picture) return profile.picture[size] || placeholders['default'];
   else return placeholders[size] || placeholders['default'];
