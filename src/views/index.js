@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Banner from '../components/presentation/Banner';
 import Page from '../components/presentation/Page';
 import BirdObservations from '../components/observations/BirdObservations';
+import Birds from '../components/birds/Birds';
 
 import banner from '../assets/img/banner.jpg';
 
@@ -46,10 +47,22 @@ const HomePage = () => {
         </div>
       </section>
       <section className="mb-5">
+        <Banner size="small" className="bg-primary text-white">
+          <h2 className="h4 text-center mt-0 mb-3">Meet some of our kākā…</h2>
+          <div className="row">
+            <Birds
+              type="feature"
+              queryString="?is_featured=true&ordering=random&limit=4"
+              className="col-6 col-lg-3 mb-3"
+            />
+          </div>
+        </Banner>
+      </section>
+      <section className="mb-5">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <h2>Recently Observed</h2>
+              <h2>Recently observed</h2>
               <div className="row">
                 <BirdObservations
                   type="feature"

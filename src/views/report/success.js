@@ -12,7 +12,7 @@ const ReportSuccessPage = ({ match }) => {
     <div className="ReportSuccessPage">
       <Helmet title="Observation Submitted" />
       <section className="mb-5">
-        <Banner size="small" additionalClasses="mb-3">
+        <Banner size="small" className="mb-3">
           <h1 className="mb-3">Thanks!</h1>
           <p className="lead">
             Your observation {slug && `(#${slug})`} has been successfully submitted.

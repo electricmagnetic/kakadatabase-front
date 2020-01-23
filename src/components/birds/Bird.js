@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import BirdPage from './Bird/BirdPage';
 import BirdCard from './Bird/BirdCard';
+import BirdFeature from './Bird/BirdFeature';
 
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
@@ -24,6 +25,8 @@ class Bird extends Component {
   renderBird(bird) {
     const { type, ...others } = this.props;
     switch (type) {
+      case 'feature':
+        return <BirdFeature bird={bird} {...others} />;
       case 'card':
         return <BirdCard bird={bird} {...others} />;
       default:
