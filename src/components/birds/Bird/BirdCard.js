@@ -28,8 +28,12 @@ const BirdCard = ({ bird, ...others }) => {
           </li>
           <li className="list-group-item">{generateSummary(bird)}</li>
           <li className="list-group-item">
-            <i className="far fa-fw fa-circle mr-2" />
-            {bird.band_combo}
+            <div className="row">
+              <div className="col-1">
+                <i className={`far fa-fw fa-circle`} />
+              </div>
+              <div className="col">{bird.band_combo}</div>
+            </div>
           </li>
         </ul>
       </div>
