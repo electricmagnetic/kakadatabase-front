@@ -11,7 +11,18 @@ import TimeSelector from './TimeSelector';
   Also handles `error` messages (from yup) and `status` messages (from back-end).
 */
 const RenderField = props => {
-  const { field, form, fieldOptions, type, addBlank, hideLabel, helpText, ...others } = props;
+  const {
+    field,
+    form,
+    fieldOptions,
+    type,
+    addBlank,
+    hideLabel,
+    helpText,
+    className,
+    tooltip,
+    ...others
+  } = props;
 
   // Use label if provided, otherwise default on OPTIONS (fieldOptions) label
   const label = props.label || fieldOptions.label;
@@ -26,9 +37,8 @@ const RenderField = props => {
 
   // Adjusts classes on form control depending on type, validity and readOnly status
   const formControlClasses = (type => {
-    const baseClasses = classnames({
-      'is-invalid': isInvalid,
-    });
+    const baseClasses = classnames(className, { 'is-invalid': isInvalid });
+    console.log(baseClasses);
     switch (type) {
       case 'checkbox':
         return classnames(baseClasses, 'form-check-input');
@@ -111,11 +121,12 @@ const RenderField = props => {
   ) : null;
 
   // Creates error element
+  const errorClass = tooltip ? 'invalid-tooltip' : 'invalid-feedback d-inline';
   const errorElement = (
     <>
       {/* `d-inline` is used to force visibility due to some incompatibilities with BS4 */}
-      {isInvalid && error && <span className="invalid-feedback d-inline">{error}</span>}
-      {isInvalid && status && <span className="invalid-feedback d-inline">{status}</span>}
+      {isInvalid && error && <span className={errorClass}>{error}</span>}
+      {isInvalid && status && <span className={errorClass}>{status}</span>}
     </>
   );
 
@@ -152,6 +163,8 @@ RenderField.defaultProps = {
   readOnly: false,
   disabled: false,
   hideLabel: false,
+  tooltip: false,
+  className: '',
 };
 
 export default RenderField;
