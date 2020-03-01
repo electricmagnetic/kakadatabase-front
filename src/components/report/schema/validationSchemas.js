@@ -4,7 +4,8 @@ import { maximumBirdObservations } from './observationParameters';
 const requiredMessage = 'This field is required.';
 const notNumber = 'This field must be a number.';
 const emailInvalid = 'Invalid email address.';
-const formatInvalid = 'Format invalid, please adjust your data.';
+const formatInvalid = 'Date format invalid, please adjust.';
+const minDateInvalid = 'Date too old, please adjust.';
 const maxDateInvalid = 'Date must be today or earlier.';
 const maxBirdObservationMessage = 'You have reached the maximum of birds permitted.';
 const invalidLongitude = 'Longitude must be between -180 and 180.';
@@ -102,6 +103,7 @@ export const initialValidationSchema = yup
   .object({
     date_sighted: yup
       .date()
+      .min(new Date('1970-01-01').toString(), minDateInvalid)
       .max(new Date().toString(), maxDateInvalid)
       .typeError(formatInvalid)
       .required(requiredMessage),

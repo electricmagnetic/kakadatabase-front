@@ -50,8 +50,8 @@ export const initialFullValues = {
 export const initialInitialValues = {
   date_sighted: moment().format('YYYY-MM-DD'),
   time_sighted: moment('12:00', 'H:mm').format('H:mm'),
-  observation_type: '',
-  number: '',
+  observation_type: 'sighted',
+  number: 1,
   location_details: '',
   longitude: '',
   latitude: '',
