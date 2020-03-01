@@ -38,7 +38,6 @@ const RenderField = props => {
   // Adjusts classes on form control depending on type, validity and readOnly status
   const formControlClasses = (type => {
     const baseClasses = classnames(className, { 'is-invalid': isInvalid });
-    console.log(baseClasses);
     switch (type) {
       case 'checkbox':
         return classnames(baseClasses, 'form-check-input');
