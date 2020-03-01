@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Banner.css';
+import './Banner.scss';
 
 /**
   Provides a consistent banner styling across components.

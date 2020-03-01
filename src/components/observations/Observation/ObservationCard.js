@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import FormatDateTime from '../../helpers/FormatDateTime';
 import generateSummary from './helpers/generateSummary';
 
-import './ObservationCard.css';
+import './ObservationCard.scss';
 
 const ListItem = ({ icon, children }) => (
   <li className="list-group-item">

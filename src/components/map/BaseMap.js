@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet';
 
 import { DEFAULT_ZOOM, DEFAULT_BOUNDS } from './defaults';
 
-import './BaseMap.css';
+import './BaseMap.scss';
 
 /**
   Creates a Leaflet map using Mapbox (lowest zoom levels), and the LINZ Data Service (Topo250, Topo50).

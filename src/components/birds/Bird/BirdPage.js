@@ -7,7 +7,7 @@ import generateSummary from './helpers/generateSummary';
 import getPicture from './helpers/getPicture';
 import BirdObservations from '../../observations/BirdObservations';
 
-import './BirdPage.css';
+import './BirdPage.scss';
 
 /**
   Presents a nicely formatted page for a given bird.

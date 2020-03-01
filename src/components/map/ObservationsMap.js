@@ -7,7 +7,7 @@ import BaseMap from './BaseMap';
 import { DEFAULT_BOUNDS } from './defaults';
 import Observation from '../observations/Observation';
 
-import './ObservationsMap.css';
+import './ObservationsMap.scss';
 
 /**
   Presents a nicely formatted map of given observations:

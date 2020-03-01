@@ -12,6 +12,7 @@
     "jquery": "^3.4.1",
     "leaflet": "^1.6.0",
     "moment": "^2.24.0",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
@@ -26,10 +27,7 @@
     "yup": "^0.28.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./node_modules --include-path ./src/assets/css src/ -o src/",
-    "watch-css": "node-sass-chokidar --include-path ./node_modules --include-path ./src/assets/css src/ -o src/ --watch --recursive",
-    "pretest": "npm run build-css",
-    "predeploy": "npm run build-css && npm run build",
+    "predeploy": "npm run build",
     "deploy": "s3-deploy './build/**' --cwd './build/' --region ap-southeast-2 --delete-removed --distId E1BB8RTE7MQFZY --invalidate '/index.html' --bucket kakadatabase.nz",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -58,7 +56,6 @@
   },
   "devDependencies": {
     "husky": "^3.1.0",
-    "node-sass-chokidar": "^1.4.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "s3-deploy": "^1.4.0"

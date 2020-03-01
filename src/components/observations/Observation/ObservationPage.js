@@ -8,7 +8,7 @@ import generateSummary from './helpers/generateSummary';
 import BirdObservations from '../BirdObservations';
 import ObservationsMap from '../../map/ObservationsMap';
 
-import './ObservationPage.css';
+import './ObservationPage.scss';
 
 /**
   Presents a nicely formatted page for a given observation.
