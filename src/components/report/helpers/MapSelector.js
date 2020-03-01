@@ -5,7 +5,7 @@ import { latLng } from 'leaflet';
 import BaseMap from '../../map/BaseMap';
 import { DEFAULT_BOUNDS, POINT_ZOOM } from '../../map/defaults';
 
-import './MapSelector.css';
+import './MapSelector.scss';
 
 /**
   Enables the selection of longitude and latitude via a map interface.
