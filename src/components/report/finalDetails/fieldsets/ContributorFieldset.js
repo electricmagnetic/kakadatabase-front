@@ -1,14 +1,14 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import RenderField from '../helpers/RenderField';
+import RenderField from '../../helpers/RenderField';
 
 /**
   Fieldset for Contributor fields.
  */
 const ContributorFieldset = ({ fieldOptions }) => (
   <fieldset className="mb-3">
-    <legend>1. Contributor Details</legend>
+    <legend>Contributor Details</legend>
     <div className="row">
       <div className="col-md-5">
         <Field
@@ -18,7 +18,6 @@ const ContributorFieldset = ({ fieldOptions }) => (
           type="text"
           placeholder="Name"
           helpText="Your name will be publicly visible"
-          autoFocus
         />
       </div>
       <div className="col-md-7">

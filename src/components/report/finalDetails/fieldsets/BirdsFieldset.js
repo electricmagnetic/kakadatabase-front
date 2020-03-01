@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Field, FieldArray } from 'formik';
 
-import RenderField from '../helpers/RenderField';
+import RenderField from '../../helpers/RenderField';
 
-import { initialBirdObservationValues } from '../schema/initialValues';
+import { initialBirdObservationValues } from '../../schema/initialValues';
 
 class RenderBirdObservation extends Component {
   render() {
