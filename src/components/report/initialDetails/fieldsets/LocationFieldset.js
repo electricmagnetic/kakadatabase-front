@@ -10,26 +10,22 @@ import RenderField from '../../helpers/RenderField';
 const LocationFieldset = ({ fieldOptions, ...others }) => (
   <fieldset className="mb-3">
     <legend className="sr-only">Location Details</legend>
-    <div className="card mb-3">
-      <div className="card-body">
-        <MapSelector {...others} />
-        <div className="row">
-          <div className="col-6 col-sm-4">
-            <Field component={RenderField} name="longitude" type="text" label="Longitude" />
-          </div>
-          <div className="col-6 col-sm-4">
-            <Field component={RenderField} name="latitude" type="text" label="Latitude" />
-          </div>
-          <div className="col-sm-4">
-            <Field
-              component={RenderField}
-              name="precision"
-              type="choice"
-              label="Precision"
-              fieldOptions={fieldOptions.precision}
-            />
-          </div>
-        </div>
+    <MapSelector {...others} />
+    <div className="row">
+      <div className="col-6 col-sm-4">
+        <Field component={RenderField} name="longitude" type="text" label="Longitude" />
+      </div>
+      <div className="col-6 col-sm-4">
+        <Field component={RenderField} name="latitude" type="text" label="Latitude" />
+      </div>
+      <div className="col-sm-4">
+        <Field
+          component={RenderField}
+          name="precision"
+          type="choice"
+          label="Precision"
+          fieldOptions={fieldOptions.precision}
+        />
       </div>
     </div>
     <Field

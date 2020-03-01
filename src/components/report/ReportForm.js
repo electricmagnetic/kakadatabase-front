@@ -12,6 +12,8 @@ import { initialValidationSchema } from './schema/validationSchemas';
 import InitialDetailsForm from './initialDetails/InitialDetailsForm';
 import FinalDetailsForm from './finalDetails/FinalDetailsForm';
 
+import './ReportForm.scss';
+
 const API_URL = `https://data.kakadatabase.nz/report/`;
 
 /**
