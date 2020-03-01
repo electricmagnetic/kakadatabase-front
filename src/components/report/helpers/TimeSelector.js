@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 /**
@@ -8,8 +8,8 @@ const TimeSelector = inputAttributes => {
   var hourChoices = [];
   const interval = 15;
 
-  Array.from(new Array(24), (object, hour) => {
-    Array.from(new Array(4), (object, minuteIndex) => {
+  Array.from(new Array(24)).forEach((object, hour) => {
+    Array.from(new Array(4)).forEach((object, minuteIndex) => {
       const minute = minuteIndex * interval;
       const value = `${hour}:${minute}`;
 
