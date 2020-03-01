@@ -4,10 +4,12 @@
   "private": true,
   "homepage": "https://kakadatabase.orokonui.nz",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
     "leaflet": "^1.6.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
@@ -55,7 +57,6 @@
     }
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.0",
     "husky": "^3.1.0",
     "node-sass-chokidar": "^1.4.0",
     "prettier": "^1.19.1",
