@@ -26,7 +26,7 @@ export const initialBirdObservationValues = {
   Specifies values and shape for submission to API. Includes API challenge.
   See also: fullValidationSchema
   */
-export const initialValues = {
+export const initialFullValues = {
   contributor: initialContributorValues,
   date_sighted: moment().format('YYYY-MM-DD'),
   time_sighted: moment().format('HH:mm'),
@@ -42,4 +42,18 @@ export const initialValues = {
   location_details: '',
   behaviour: '',
   challenge: 'kaka',
+};
+
+/**
+  xxxxx
+  */
+export const initialInitialValues = {
+  date_sighted: moment().format('YYYY-MM-DD'),
+  time_sighted: moment('12:00', 'H:mm').format('H:mm'),
+  observation_type: '',
+  number: '',
+  location_details: '',
+  longitude: '',
+  latitude: '',
+  precision: '250',
 };

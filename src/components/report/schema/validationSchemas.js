@@ -4,9 +4,12 @@ import { maximumBirdObservations } from './observationParameters';
 const requiredMessage = 'This field is required.';
 const notNumber = 'This field must be a number.';
 const emailInvalid = 'Invalid email address.';
-const dateInvalid = 'Date format invalid. Must be YYYY-MM-DD.';
+const formatInvalid = 'Format invalid, please adjust your data.';
 const maxDateInvalid = 'Date must be today or earlier.';
 const maxBirdObservationMessage = 'You have reached the maximum of birds permitted.';
+const invalidLongitude = 'Longitude must be between -180 and 180.';
+const invalidLatitude = 'Latitude must be between -90 and 90.';
+const invalidNumber = 'You must have seen at least one bird.';
 
 /**
   Specifies validation of contributor.
@@ -50,7 +53,7 @@ export const fullValidationSchema = yup
       .date()
       .max(new Date(), maxDateInvalid)
       .required(requiredMessage)
-      .typeError(dateInvalid),
+      .typeError(formatInvalid),
     time_sighted: yup.string().required(requiredMessage),
     birds: yup
       .array()
@@ -77,8 +80,9 @@ export const fullValidationSchema = yup
     precision: yup.number().typeError(notNumber),
     number: yup
       .number()
-      .min(1)
-      .typeError(notNumber),
+      .min(1, invalidNumber)
+      .typeError(notNumber)
+      .required(requiredMessage),
     location_details: yup.string(),
     behaviour: yup.string(),
     challenge: yup
@@ -88,4 +92,42 @@ export const fullValidationSchema = yup
   })
   .required()
   .strict()
+  .noUnknown();
+
+/**
+  xxxxx
+  */
+
+export const initialValidationSchema = yup
+  .object({
+    date_sighted: yup
+      .date()
+      .max(new Date().toString(), maxDateInvalid)
+      .typeError(formatInvalid)
+      .required(requiredMessage),
+    time_sighted: yup
+      .string()
+      .matches(/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/, formatInvalid)
+      .required(),
+    observation_type: yup.string().required(requiredMessage),
+    number: yup
+      .number()
+      .min(1, invalidNumber)
+      .typeError(notNumber)
+      .required(requiredMessage),
+    location_details: yup.string(),
+    longitude: yup
+      .number()
+      .min(-180, invalidLongitude)
+      .max(180, invalidLongitude)
+      .typeError(notNumber)
+      .required(requiredMessage),
+    latitude: yup
+      .number()
+      .min(-90, invalidLatitude)
+      .max(90, invalidLatitude)
+      .typeError(notNumber)
+      .required(requiredMessage),
+  })
+  .required()
   .noUnknown();

@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-refetch';
-import { Form, withFormik } from 'formik';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-refetch';
+import qs from 'qs';
+import PropTypes from 'prop-types';
 
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-import Messages from './fieldsets/Messages';
-// import BirdsFieldset from './fieldsets/BirdsFieldset';
-// import ContributorFieldset from './fieldsets/ContributorFieldset';
-// import LocationFieldset from './fieldsets/LocationFieldset';
-import SubmitFieldset from './fieldsets/SubmitFieldset';
-
-import { initialValues } from './schema/initialValues';
-import { fullValidationSchema } from './schema/validationSchemas';
+import { qsOptions } from './schema/observationParameters';
+import { initialValidationSchema } from './schema/validationSchemas';
+import InitialDetailsForm from './initialDetails/InitialDetailsForm';
+import FinalDetailsForm from './finalDetails/FinalDetailsForm';
 
 const API_URL = `https://data.kakadatabase.nz/report/`;
 
@@ -25,28 +22,29 @@ const API_URL = `https://data.kakadatabase.nz/report/`;
 
   On successful client-side validation, values are posted to server and user is redirected to success page.
  */
-class FormComponent extends Component {
+class ReportForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      queryString: {},
+    };
+  }
+
+  updateStateFromQueryString() {
+    // Store query string in state
+    this.setState({
+      queryString: qs.parse(this.props.location.search, qsOptions),
+    });
+  }
+
+  componentDidMount() {
+    // Set state from and query string parameters passed on load
+    this.updateStateFromQueryString();
+  }
+
   componentDidUpdate(prevProps) {
-    // Handle react-refetch response (either successful POST or error handling for fields)
-    if (this.props.postSubmissionResponse) {
-      const { postSubmissionResponse } = this.props;
-      const isSettled =
-        postSubmissionResponse.settled &&
-        prevProps.postSubmissionResponse.settled !== postSubmissionResponse.settled;
-
-      // Conclude isSubmitting if either rejected or fulfilled
-      if (
-        (postSubmissionResponse.rejected || postSubmissionResponse.fulfilled) &&
-        this.props.isSubmitting
-      )
-        this.props.setSubmitting(false);
-
-      // Set formik status if API errors encountered, otherwise redirect to success page
-      if (postSubmissionResponse.rejected && isSettled)
-        this.props.setStatus(postSubmissionResponse.reason.cause);
-      else if (postSubmissionResponse.fulfilled && isSettled)
-        this.props.history.push(`/report/success/${postSubmissionResponse.value.id}`);
-    }
+    // If location changes, update state accordingly
+    if (this.props.location !== prevProps.location) this.updateStateFromQueryString();
   }
 
   render() {
@@ -71,41 +69,20 @@ class FormComponent extends Component {
 
       return (
         <div className="ReportForm">
-          <section className="mb-5">
-            <Form>
-              <div className="container">
-                <Messages {...this.props} />
-                {/*<DetailsFieldset {...this.props} fieldOptions={fieldOptions} />
-                <ContributorFieldset {...this.props} fieldOptions={fieldOptions} />
-                <BirdsFieldset {...this.props} fieldOptions={fieldOptions} />
-                <LocationFieldset {...this.props} fieldOptions={fieldOptions} />*/}
-                <SubmitFieldset {...this.props} />
-              </div>
-            </Form>
-          </section>
+          {initialValidationSchema.isValidSync(this.state.queryString) ? (
+            <FinalDetailsForm queryString={this.state.queryString} fieldOptions={fieldOptions} />
+          ) : (
+            <InitialDetailsForm fieldOptions={fieldOptions} />
+          )}
         </div>
       );
     } else return null;
   }
 }
 
-/**
-  Computes initial values for the form.
- */
-const computeInitialValues = props => {
-  return Object.assign({}, initialValues);
+ReportForm.propTypes = {
+  'location.search': PropTypes.string,
 };
-
-/**
-  Primary submission form, using formik, yup and react-refetch
-*/
-const ReportForm = withFormik({
-  mapPropsToValues: props => computeInitialValues(props),
-  validationSchema: fullValidationSchema,
-  handleSubmit: (values, actions) => {
-    actions.props.postSubmission(Object.assign({}, values));
-  },
-})(FormComponent);
 
 export default withRouter(
   connect(props => ({
@@ -113,12 +90,5 @@ export default withRouter(
       url: API_URL,
       method: 'OPTIONS',
     },
-    postSubmission: values => ({
-      postSubmissionResponse: {
-        url: API_URL,
-        method: 'POST',
-        body: JSON.stringify(values),
-      },
-    }),
   }))(ReportForm)
 );

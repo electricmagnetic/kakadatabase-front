@@ -2,6 +2,8 @@ import React from 'react';
 import { getIn } from 'formik';
 import classnames from 'classnames';
 
+import TimeSelector from './TimeSelector';
+
 /**
   Principal method for rendering all fields. Handles logic for displaying checkboxes, select field
   and regular input fields.
@@ -31,9 +33,8 @@ const RenderField = props => {
       case 'checkbox':
         return classnames(baseClasses, 'form-check-input');
       case 'choice':
+      case 'time':
         return classnames(baseClasses, 'custom-select');
-      case 'gridTileSelect':
-        return classnames(baseClasses);
       default:
         return classnames(
           baseClasses,
@@ -72,6 +73,8 @@ const RenderField = props => {
   // Creates field element based on field type
   const fieldElement = (type => {
     switch (type) {
+      case 'time':
+        return <TimeSelector {...inputAttributes} />;
       case 'choice':
         return (
           <select {...inputAttributes}>
