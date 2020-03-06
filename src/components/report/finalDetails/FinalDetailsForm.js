@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 import Error from '../../helpers/Error';
 
 import Messages from '../helpers/Messages';
-//import BirdsFieldset from './fieldsets/BirdsFieldset';
-//import ContributorFieldset from './fieldsets/ContributorFieldset';
-//import FurtherInformationFieldset from './fieldsets/FurtherInformationFieldset';
+import BirdsFieldset from './fieldsets/BirdsFieldset';
+import ContributorFieldset from './fieldsets/ContributorFieldset';
+import FurtherInformationFieldset from './fieldsets/FurtherInformationFieldset';
 import SubmitFieldset from './fieldsets/SubmitFieldset';
 
 import { initialFullValues, initialBirdObservationValues } from '../schema/initialValues';
@@ -50,7 +50,6 @@ class FormComponent extends Component {
     if (!initialValidationSchema.isValidSync(this.props.queryString))
       return <Error message="Invalid or missing URL parameters" />;
 
-    const fieldOptions = this.props.fieldOptions;
     return (
       <div className="FinalDetailsForm">
         <Helmet title="2. Final Observation Details" />
@@ -58,10 +57,9 @@ class FormComponent extends Component {
           <Form>
             <div className="container">
               <Messages {...this.props} />
-              {/*<ContributorFieldset {...this.props} fieldOptions={fieldOptions} />*/}
-              {/*<DetailsFieldset {...this.props} fieldOptions={fieldOptions} />*/}
-              {/*<BirdsFieldset {...this.props} fieldOptions={fieldOptions} />*/}
-              {/*<LocationFieldset {...this.props} fieldOptions={fieldOptions} />*/}
+              <BirdsFieldset {...this.props} />
+              <ContributorFieldset {...this.props} />
+              <FurtherInformationFieldset {...this.props} />
               <SubmitFieldset {...this.props} />
             </div>
           </Form>
