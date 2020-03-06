@@ -66,7 +66,7 @@ class ReportForm extends Component {
           </Error>
         </div>
       );
-    else if (submissionOptions.fulfilled) {
+    else if (submissionOptions.fulfilled && submissionOptions.value) {
       const fieldOptions = submissionOptions.value.actions.POST;
 
       return (
