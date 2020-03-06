@@ -28,18 +28,12 @@ export const initialBirdObservationValues = {
   */
 export const initialFullValues = {
   contributor: initialContributorValues,
-  date_sighted: moment().format('YYYY-MM-DD'),
-  time_sighted: moment().format('HH:mm'),
   birds: [],
   comments: '',
-  observation_type: '',
   point_location: {
     type: 'Point',
     coordinates: [],
   },
-  precision: null,
-  number: null,
-  location_details: '',
   behaviour: '',
   challenge: 'kaka',
 };

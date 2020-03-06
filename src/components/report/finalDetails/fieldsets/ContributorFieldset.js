@@ -8,7 +8,7 @@ import RenderField from '../../helpers/RenderField';
  */
 const ContributorFieldset = ({ fieldOptions }) => (
   <fieldset className="mb-3">
-    <legend>Contributor Details</legend>
+    <legend>About You</legend>
     <div className="row">
       <div className="col-md-5">
         <Field
@@ -28,27 +28,6 @@ const ContributorFieldset = ({ fieldOptions }) => (
           type="text"
           placeholder="Email"
           helpText="Your email is only visible to the project team"
-        />
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-md-6">
-        <Field
-          component={RenderField}
-          fieldOptions={fieldOptions.contributor.children.activity}
-          name="contributor.activity"
-          type="choice"
-          helpText="(optional)"
-        />
-      </div>
-      <div className="col-md-6">
-        <Field
-          component={RenderField}
-          fieldOptions={fieldOptions.contributor.children.heard}
-          name="contributor.heard"
-          type="choice"
-          label="How did you hear about this?"
-          helpText="(optional)"
         />
       </div>
     </div>

@@ -52,9 +52,8 @@ export const fullValidationSchema = yup
     contributor: contributorValidationSchema.required(requiredMessage),
     date_sighted: yup
       .date()
-      .max(new Date(), maxDateInvalid)
-      .required(requiredMessage)
-      .typeError(formatInvalid),
+      .typeError(formatInvalid)
+      .required(requiredMessage),
     time_sighted: yup.string().required(requiredMessage),
     birds: yup
       .array()
@@ -92,7 +91,6 @@ export const fullValidationSchema = yup
       .required(),
   })
   .required()
-  .strict()
   .noUnknown();
 
 /**

@@ -10,10 +10,10 @@ import { initialBirdObservationValues } from '../../schema/initialValues';
 class RenderBirdObservation extends Component {
   render() {
     const { index, fieldOptions } = this.props;
-    const name = `birdObservations.${index}`;
+    const name = `birds.${index}`;
 
     return (
-      <div className="col-md-3 mb-3" key={index}>
+      <div className="col-sm-4 col-lg-3 mb-3" key={index}>
         <div className="card card-dull">
           <ul className="list-group list-group-flush">
             <li className="list-group-item">

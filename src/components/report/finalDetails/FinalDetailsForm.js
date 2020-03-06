@@ -41,7 +41,7 @@ class FormComponent extends Component {
       if (postSubmissionResponse.rejected && isSettled)
         this.props.setStatus(postSubmissionResponse.reason.cause);
       else if (postSubmissionResponse.fulfilled && isSettled)
-        this.props.history.push(`/submit/success/${postSubmissionResponse.value.id}`);
+        this.props.history.push(`/report/success/${postSubmissionResponse.value.id}`);
     }
   }
 
@@ -70,14 +70,20 @@ class FormComponent extends Component {
 }
 
 /**
-  Computes initial values for the form, based on gridTiles provided via the queryString.
+  Transforms initial values for the form, based on values provided via the queryString.
  */
 const computeInitialValues = props => {
   const { queryString } = props;
 
-  const birds = [1, 2, 3, 4].map(bird => Object.assign({}, initialBirdObservationValues));
-
-  return Object.assign({}, initialFullValues, { birds: birds }, queryString);
+  return Object.assign({}, initialFullValues, {
+    ...queryString,
+    number: Number(queryString.number),
+    precision: Number(queryString.precision),
+    point_location: {
+      type: 'Point',
+      coordinates: [Number(queryString.latitude), Number(queryString.longitude)],
+    },
+  });
 };
 
 /**
