@@ -71,18 +71,19 @@ class FormComponent extends Component {
 
 /**
   Transforms initial values for the form, based on values provided via the queryString.
+  Casts values as per schema (e.g. "2" -> 2), adds requisite number of birds, and tranforms coordinates.
  */
 const computeInitialValues = props => {
   const { queryString } = props;
+  const initialDetailsValues = initialValidationSchema.cast(queryString);
 
-  return Object.assign({}, initialFullValues, {
-    ...queryString,
-    number: Number(queryString.number),
-    precision: Number(queryString.precision),
+  return Object.assign({}, initialFullValues, initialDetailsValues, {
     point_location: {
       type: 'Point',
-      coordinates: [Number(queryString.latitude), Number(queryString.longitude)],
+      coordinates: [initialDetailsValues.longitude, initialDetailsValues.latitude],
     },
+    birds: Array(initialDetailsValues.number).fill(initialBirdObservationValues),
+    date_sighted: queryString.date_sighted, // expected as string object, not Date
   });
 };
 
@@ -99,9 +100,7 @@ const FinalDetailsForm = withFormik({
 
 FinalDetailsForm.propTypes = {
   fieldOptions: PropTypes.object.isRequired,
-  queryString: PropTypes.shape({
-    //gridTiles: PropTypes.array.isRequired,
-  }).isRequired,
+  queryString: PropTypes.object.isRequired,
 };
 
 export default withRouter(

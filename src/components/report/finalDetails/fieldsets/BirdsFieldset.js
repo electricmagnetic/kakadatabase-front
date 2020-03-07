@@ -74,13 +74,14 @@ class RenderBirdObservation extends Component {
 
 class RenderBirdObservations extends Component {
   render() {
-    const number = Number(this.props.values.number);
+    const { values } = this.props;
 
     return (
       <div className="RenderBirdObservations">
         <div className="row">
-          {number &&
-            Array.from(new Array(number)).map((object, index) => (
+          {values.birds &&
+            values.birds.length > 0 &&
+            values.birds.map((bird, index) => (
               <RenderBirdObservation index={index} {...this.props} key={index} />
             ))}
         </div>
