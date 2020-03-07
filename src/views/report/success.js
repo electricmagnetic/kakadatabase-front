@@ -17,13 +17,13 @@ const ReportSuccessPage = ({ match }) => {
           <p className="lead">
             Your observation {slug && `(#${slug})`} has been successfully submitted.
           </p>
-          <Link to="/report" className="btn btn-primary mr-3" role="button">
+          <Link to="/report" className="btn btn-primary mr-3 mb-1" role="button">
             <i className="fa-fw fas fa-redo mr-1" />
             Report Another
           </Link>
           {slug && (
             <Link to={'/observations/' + slug} className="btn btn-light mr-3" role="button">
-              <i className="fa-fw fas fa-list-alt mr-1" />
+              <i className="fa-fw fas fa-list-alt mr-1 mb-1" />
               View Observation
             </Link>
           )}
