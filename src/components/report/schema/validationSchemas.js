@@ -46,14 +46,12 @@ export const birdObservationValidationSchema = yup
 /**
   Specifies full validation schema for form.
   Values are also verified by API, yup is used to provide immediate (async) feedback to users.
+  Defined by what is expected by the API (e.g. date_sighted as a string, not Date object).
   */
 export const fullValidationSchema = yup
   .object({
     contributor: contributorValidationSchema.required(requiredMessage),
-    date_sighted: yup
-      .date()
-      .typeError(formatInvalid)
-      .required(requiredMessage),
+    date_sighted: yup.string().required(requiredMessage),
     time_sighted: yup.string().required(requiredMessage),
     birds: yup
       .array()
@@ -91,12 +89,12 @@ export const fullValidationSchema = yup
       .required(),
   })
   .required()
+  .strict()
   .noUnknown();
 
 /**
   xxxxx
   */
-
 export const initialValidationSchema = yup
   .object({
     date_sighted: yup
@@ -128,6 +126,7 @@ export const initialValidationSchema = yup
       .max(90, invalidLatitude)
       .typeError(notNumber)
       .required(requiredMessage),
+    precision: yup.number().typeError(notNumber),
   })
   .required()
   .noUnknown();
