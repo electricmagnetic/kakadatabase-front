@@ -8,23 +8,29 @@ import getPicture from '../../birds/Bird/helpers/getPicture';
   If bird is unknown/unmoderated, present information that is currently known.
   */
 const UnknownBirdCard = ({ birdObservation }) => (
-  <div className="card">
-    <img src={getPicture()} alt="Bird silhouette" className="card-img-top" />
-    <ul className="list-group list-group-flush">
-      <li className="list-group-item">
-        <i className="far fa-fw fa-circle mr-2" />
-        {birdObservation.banded}
-      </li>
-      <li className="list-group-item">
-        {birdObservation.band_combo ? (
-          <>birdObservation.band_combo</>
-        ) : (
-          <>
-            {birdObservation.life_stage_guess} {birdObservation.sex_guess}
-          </>
+  <div className="UnknownBirdCard">
+    <div className="card card-dull">
+      <img src={getPicture()} alt="Bird silhouette" className="card-img-top" />
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">
+          <i className="far fa-fw fa-circle mr-2" />
+          {birdObservation.banded}
+        </li>
+        {(birdObservation.band_combo ||
+          birdObservation.life_stage_guess ||
+          birdObservation.sex_guess) && (
+          <li className="list-group-item">
+            {birdObservation.band_combo ? (
+              <>{birdObservation.band_combo}</>
+            ) : (
+              <>
+                {birdObservation.life_stage_guess} {birdObservation.sex_guess}
+              </>
+            )}
+          </li>
         )}
-      </li>
-    </ul>
+      </ul>
+    </div>
   </div>
 );
 
