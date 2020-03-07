@@ -14,7 +14,7 @@ import FinalDetailsForm from './finalDetails/FinalDetailsForm';
 
 import './ReportForm.scss';
 
-const API_URL = `https://data.kakadatabase.nz/report/`;
+const API_URL = `${process.env.REACT_APP_API_BASE}/report/`;
 
 /**
   Master form layout for observation submission.

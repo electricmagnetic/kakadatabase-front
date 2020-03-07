@@ -16,7 +16,7 @@ import SubmitFieldset from './fieldsets/SubmitFieldset';
 import { initialFullValues, initialBirdObservationValues } from '../schema/initialValues';
 import { fullValidationSchema, initialValidationSchema } from '../schema/validationSchemas';
 
-const API_URL = `https://data.kakadatabase.nz/report/`;
+const API_URL = `${process.env.REACT_APP_API_BASE}/report/`;
 
 /**
   xxxxx
