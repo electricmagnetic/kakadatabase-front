@@ -17,7 +17,7 @@ const ReportSuccessPage = ({ match }) => {
           <p className="lead">
             Your observation {slug && `(#${slug})`} has been successfully submitted.
           </p>
-          <Link to="/submit" className="btn btn-primary mr-3" role="button">
+          <Link to="/report" className="btn btn-primary mr-3" role="button">
             <i className="fa-fw fas fa-redo mr-1" />
             Report Another
           </Link>
