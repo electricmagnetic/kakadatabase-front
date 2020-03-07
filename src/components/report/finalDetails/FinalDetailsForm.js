@@ -52,7 +52,7 @@ class FormComponent extends Component {
 
     return (
       <div className="FinalDetailsForm">
-        <Helmet title="2. Final Observation Details" />
+        <Helmet title="2. Report Observation" />
         <section className="mb-5">
           <Form>
             <div className="container">

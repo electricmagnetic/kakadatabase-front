@@ -67,7 +67,6 @@ const ObservationPage = ({ observation }) => {
           </div>
         </div>
         <section className="mb-5">
-          <h2>Birds</h2>
           <div className="row">
             <BirdObservations
               queryString={`?observation=${observation.id}`}

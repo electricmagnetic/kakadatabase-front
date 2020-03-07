@@ -22,7 +22,7 @@ class InitialDetailsFormComponent extends Component {
   render() {
     return (
       <div className="InitialDetailsForm">
-        <Helmet title="1. Initial Observation Details" />
+        <Helmet title="1. Report Observation" />
         <section className="mb-5">
           <Form className="form mb-3">
             <div className="container">

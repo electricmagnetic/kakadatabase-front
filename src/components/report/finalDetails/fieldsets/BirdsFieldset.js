@@ -17,7 +17,7 @@ class RenderBirdObservation extends Component {
         <div className="card card-dull">
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
-              <h2 className="card-title h5 m-0">Kākā #{index + 1}</h2>
+              <h2 className="card-title m-0">Kākā #{index + 1}</h2>
             </li>
             <li className="list-group-item">
               <Field

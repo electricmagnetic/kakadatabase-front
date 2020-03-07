@@ -22,7 +22,7 @@ const BirdCard = ({ bird, ...others }) => {
         </Link>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
-            <h2 className="card-title h5 m-0">
+            <h2 className="card-title m-0">
               <Link to={birdLink(bird)}>{bird.label}</Link>
             </h2>
           </li>
