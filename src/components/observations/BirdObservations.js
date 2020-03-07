@@ -7,7 +7,7 @@ import BirdObservation from './BirdObservation';
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-const API_URL = `https://data.kakadatabase.nz/bird_observations/`;
+const API_URL = `${process.env.REACT_APP_API_BASE}/bird_observations/`;
 
 /**
   BirdObservations fetches a series of bird observations using a given (optional) queryString and renders it using BirdObservation.

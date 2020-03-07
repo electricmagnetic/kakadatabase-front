@@ -9,7 +9,7 @@ import BirdObservationFeature from './BirdObservation/BirdObservationFeature';
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-const API_URL = `https://data.kakadatabase.nz/bird_observations/`;
+const API_URL = `${process.env.REACT_APP_API_BASE}/bird_observations/`;
 
 /**
   BirdObservation either:

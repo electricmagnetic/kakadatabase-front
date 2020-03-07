@@ -7,7 +7,7 @@ import Bird from './Bird';
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-const API_URL = `https://data.kakadatabase.nz/birds/`;
+const API_URL = `${process.env.REACT_APP_API_BASE}/birds/`;
 
 /**
   Birds fetches a series of birds using a given (optional) queryString and renders it using Bird.

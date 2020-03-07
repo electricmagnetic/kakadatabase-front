@@ -8,7 +8,7 @@ import ObservationsMap from '../map/ObservationsMap';
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-const API_URL = `https://data.kakadatabase.nz/observations/`;
+const API_URL = `${process.env.REACT_APP_API_BASE}/observations/`;
 
 /**
   Observations fetches a series of observations using a given (optional) queryString and renders it using Observation.
