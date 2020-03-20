@@ -3,7 +3,7 @@ import { connect } from 'react-refetch';
 import PropTypes from 'prop-types';
 
 import Observation from './Observation';
-import ObservationsMap from '../map/ObservationsMap';
+import ObservationsMap from './Observation/ObservationsMap';
 
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';

@@ -6,7 +6,7 @@ import FormatDateTime from '../../helpers/FormatDateTime';
 import Banner from '../../presentation/Banner';
 import generateSummary from './helpers/generateSummary';
 import BirdObservations from '../BirdObservations';
-import ObservationsMap from '../../map/ObservationsMap';
+import ObservationsMap from './ObservationsMap';
 
 import './ObservationPage.scss';
 

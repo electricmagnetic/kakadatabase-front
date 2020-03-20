@@ -3,9 +3,9 @@ import { FeatureGroup, ScaleControl, Circle, CircleMarker, Popup } from 'react-l
 import { GeoJSON as LeafletGeoJSON } from 'leaflet';
 import PropTypes from 'prop-types';
 
-import BaseMap from './BaseMap';
-import { DEFAULT_BOUNDS } from './defaults';
-import Observation from '../observations/Observation';
+import BaseMap from '../../map/BaseMap';
+import { DEFAULT_BOUNDS } from '../../map/defaults';
+import Observation from '../Observation';
 
 import './ObservationsMap.scss';
 
