@@ -21,7 +21,7 @@ class Birds extends Component {
     } else if (birdsFetch.rejected) {
       return <Error message="Error fetching birds" />;
     } else if (birdsFetch.fulfilled) {
-      return birdsFetch.value.results.map(bird => <Bird bird={bird} key={bird.id} {...others} />);
+      return birdsFetch.value.map(bird => <Bird bird={bird} key={bird.id} {...others} />);
     } else return null;
   }
 }
