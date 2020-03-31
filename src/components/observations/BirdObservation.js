@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-refetch';
 import PropTypes from 'prop-types';
 
+import Observation from './Observation';
 import BirdObservationBirdCard from './BirdObservation/BirdObservationBirdCard';
-import BirdObservationObservationCard from './BirdObservation/BirdObservationObservationCard';
 import BirdObservationFeature from './BirdObservation/BirdObservationFeature';
 
 import Loader from '../helpers/Loader';
@@ -25,10 +25,10 @@ class BirdObservation extends Component {
   renderBirdObservation(birdObservation) {
     const { type, ...others } = this.props;
     switch (type) {
+      case 'observationCard':
+        return <Observation observation={birdObservation.observation} type="card" {...others} />;
       case 'feature':
         return <BirdObservationFeature birdObservation={birdObservation} {...others} />;
-      case 'observationCard':
-        return <BirdObservationObservationCard birdObservation={birdObservation} {...others} />;
       default:
         return <BirdObservationBirdCard birdObservation={birdObservation} {...others} />;
     }
