@@ -31,6 +31,7 @@ class BaseMap extends Component {
         viewport={this.state.viewport}
         minZoom={6}
         maxZoom={14}
+        maxBounds={DEFAULT_BOUNDS}
         {...this.props}
       >
         <TileLayer

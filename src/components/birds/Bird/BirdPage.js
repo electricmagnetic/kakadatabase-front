@@ -27,21 +27,23 @@ const BirdPage = ({ bird }) => {
       <div className="container">
         <div className="row">
           <div className="col-md-4 order-md-9 mb-5">
-            <img
-              src={getPicture(bird, 'large')}
-              alt={bird.label}
-              className="img-fluid img-thumbnail"
-            />
-            {profile && (
-              <>
-                {profile.picture_attribution && (
-                  <figcaption className="text-right my-2">
-                    <i className="fas fa-camera mr-2" />
-                    {profile.picture_attribution}
-                  </figcaption>
-                )}
-              </>
-            )}
+            <figure>
+              <img
+                src={getPicture(bird, 'large')}
+                alt={bird.label}
+                className="img-fluid img-thumbnail"
+              />
+              {profile && (
+                <>
+                  {profile.picture_attribution && (
+                    <figcaption className="text-right my-2">
+                      <i className="fas fa-camera mr-2" />
+                      {profile.picture_attribution}
+                    </figcaption>
+                  )}
+                </>
+              )}
+            </figure>
           </div>
           <div className="col-md-8 order-md-1 mb-5">
             <dl>
@@ -72,7 +74,7 @@ const BirdPage = ({ bird }) => {
           </div>
         </div>
         <section>
-          <h2>Observations</h2>
+          <h2>Recent observations</h2>
           <section className="mb-3">
             <BirdObservations queryString={`?bird=${bird.id}`} type="map" />
           </section>

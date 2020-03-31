@@ -24,6 +24,9 @@ class BirdObservations extends Component {
     } else if (birdObservationsFetch.fulfilled) {
       const birdObservations = birdObservationsFetch.value.results;
 
+      // Catch zero observations so map doesn't attempt to render
+      if (birdObservations.length === 0) return null;
+
       // Intercept type 'map', as this needs rendering as a group on a single map
       if (this.props.type === 'map')
         return (
