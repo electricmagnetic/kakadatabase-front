@@ -71,15 +71,20 @@ const BirdPage = ({ bird }) => {
             )}
           </div>
         </div>
-        <section className="mb-5">
+        <section>
           <h2>Observations</h2>
-          <div className="row">
-            <BirdObservations
-              queryString={`?bird=${bird.id}`}
-              className="col-6 col-sm-4 col-lg-3 mb-3"
-              type="observationCard"
-            />
-          </div>
+          <section className="mb-3">
+            <BirdObservations queryString={`?bird=${bird.id}`} type="map" />
+          </section>
+          <section className="mb-5">
+            <div className="row">
+              <BirdObservations
+                queryString={`?bird=${bird.id}`}
+                className="col-6 col-sm-4 col-lg-3 mb-3"
+                type="observationCard"
+              />
+            </div>
+          </section>
         </section>
       </div>
     </div>

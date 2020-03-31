@@ -3,6 +3,7 @@ import { connect } from 'react-refetch';
 import PropTypes from 'prop-types';
 
 import BirdObservation from './BirdObservation';
+import ObservationsMap from './Observation/ObservationsMap';
 
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
@@ -21,20 +22,26 @@ class BirdObservations extends Component {
     } else if (birdObservationsFetch.rejected) {
       return <Error message="Error fetching bird observations" />;
     } else if (birdObservationsFetch.fulfilled) {
-      return birdObservationsFetch.value.results.map(birdObservation => (
-        <BirdObservation birdObservation={birdObservation} key={birdObservation.id} {...others} />
-      ));
+      const birdObservations = birdObservationsFetch.value.results;
+
+      // Intercept type 'map', as this needs rendering as a group on a single map
+      if (this.props.type === 'map')
+        return (
+          <ObservationsMap
+            observations={birdObservations.map(birdObservation => birdObservation.observation)}
+            {...others}
+          />
+        );
+      else
+        return birdObservations.map(birdObservation => (
+          <BirdObservation birdObservation={birdObservation} key={birdObservation.id} {...others} />
+        ));
     } else return null;
   }
 }
 
 BirdObservations.propTypes = {
-  type: PropTypes.string.isRequired,
   queryString: PropTypes.string,
-};
-
-BirdObservations.defaultProps = {
-  type: 'birdCard',
 };
 
 export default connect(props => ({
