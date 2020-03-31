@@ -36,12 +36,7 @@ class Observations extends Component {
 }
 
 Observations.propTypes = {
-  type: PropTypes.string.isRequired,
   queryString: PropTypes.string,
-};
-
-Observations.defaultProps = {
-  type: 'card',
 };
 
 export default connect(props => ({
