@@ -4,9 +4,10 @@
 const generateSummary = bird => {
   var summary = [];
 
-  bird.life_stage !== 'Undetermined' && summary.push(bird.life_stage);
-  summary.push(bird.sex);
-  summary.push(bird.primary_band);
+  bird.status === 'Dead' && summary.push('Deceased');
+  bird.life_stage && bird.life_stage !== 'Undetermined' && summary.push(bird.life_stage);
+  bird.sex && summary.push(bird.sex);
+  bird.primary_band && summary.push(bird.primary_band);
 
   return summary.join(' · ');
 };
