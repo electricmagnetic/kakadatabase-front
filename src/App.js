@@ -10,6 +10,8 @@ import AboutPage from './views/about';
 import LegalPage from './views/legal';
 
 import LearnPage from './views/learn/index';
+import ThreatsPage from './views/learn/threats';
+import ProtectingPage from './views/learn/protecting';
 
 import BirdsPage from './views/birds/index';
 import BirdDetailPage from './views/birds/detail';
@@ -38,6 +40,8 @@ function App() {
             <Route exact path="/legal" component={LegalPage} />
 
             <Route exact path="/learn" component={LearnPage} />
+            <Route exact path="/learn/threats" component={ThreatsPage} />
+            <Route exact path="/learn/protecting" component={ProtectingPage} />
 
             <Route exact path="/birds" component={BirdsPage} />
             <Route exact path="/birds/:slug" component={BirdDetailPage} />

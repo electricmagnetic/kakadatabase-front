@@ -39,12 +39,34 @@ const Header = ({ onHome }) => {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink exact to="/learn" className="nav-link">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   <i className="fa-fw fas fa-feather-alt mr-2" />
                   About
                   <span className="d-lg-none d-xl-inline"> Kākā</span>
-                </NavLink>
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <NavLink exact to="/learn" className="dropdown-item">
+                    <i className="fa-fw fas fa-feather-alt mr-2" />
+                    About Kākā
+                  </NavLink>
+                  <NavLink exact to="/learn/threats" className="dropdown-item">
+                    <i className="fa-fw fas fa-paw mr-2" />
+                    Threats to Kākā
+                  </NavLink>
+                  <NavLink exact to="/learn/protecting" className="dropdown-item">
+                    <i className="fa-fw fas fa-shield-alt mr-2" />
+                    Protecting Kākā
+                  </NavLink>
+                </div>
               </li>
               <li className="nav-item">
                 <NavLink to="/birds" className="nav-link">
