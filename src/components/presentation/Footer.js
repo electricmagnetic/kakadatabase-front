@@ -34,13 +34,6 @@ const Footer = () => {
           </div>
           <div className="col-md-5 footer-attribution">
             <p>
-              A project of{' '}
-              <a href="http://orokonui.nz" target="_blank" rel="noopener noreferrer">
-                Orokonui Ecosanctuary
-              </a>
-              .
-            </p>
-            <p>
               Kākā Database data hosted in New Zealand on{' '}
               <a
                 href="https://www.catalyst.net.nz/products/gis-core"

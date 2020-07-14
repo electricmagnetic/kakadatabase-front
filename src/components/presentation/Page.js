@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Loader from '../helpers/Loader';
 import Error from '../helpers/Error';
 
-const API_URL = `https://public-api.wordpress.com/wp/v2/sites/orokonui.kakadatabase.nz/pages/`;
+const API_URL = `${process.env.REACT_APP_WORDPRESS_API}/pages/`;
 
 /**
   Gets a page from the WordPress API.

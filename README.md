@@ -1,6 +1,6 @@
 # kakadatabase-front
 
-A React-based tool for tracking Orokonui Ecosanctuary's kākā.
+A React-based tool for tracking kākā.
 
 ## Setup
 
