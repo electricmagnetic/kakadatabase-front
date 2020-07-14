@@ -26,6 +26,11 @@ const Footer = ({ onSubmitPage }) => {
                   Catalyst GIS Core
                 </a>
                 .
+                A project of{' '}
+                <a href="http://orokonui.nz" target="_blank" rel="noopener noreferrer">
+                  Orokonui Ecosanctuary
+                </a>
+                .
               </p>
               <nav>
                 <ul className="footer-links my-2">

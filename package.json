@@ -2,7 +2,7 @@
   "name": "kakadatabase-front",
   "version": "0.13.0",
   "private": true,
-  "homepage": "XXXX",
+  "homepage": "https://kakadatabase.orokonui.nz",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@sentry/react": "^5.30.0",
