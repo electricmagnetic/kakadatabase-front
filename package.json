@@ -31,7 +31,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "s3-deploy './build/**' --cwd './build/' --region ap-southeast-2 --delete-removed --distId E1BB8RTE7MQFZY --invalidate '/index.html' --bucket kakadatabase.nz",
+    "deploy": "s3-deploy './build/**' --cwd './build/' --region ap-southeast-2 --delete-removed --distId E1BB8RTE7MQFZY --invalidate '/index.html' --bucket orokonui.kakadatabase.nz",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
