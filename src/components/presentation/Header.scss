@@ -29,11 +29,7 @@ header {
     .navbar-brand {
       font-family: $headings-font-family;
       img {
-        height: 48px;
-
-        @include media-breakpoint-up(sm) {
-          height: 64px;
-        }
+        height: 56px;
       }
     }
   }
