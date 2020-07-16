@@ -15,7 +15,10 @@ const HomePage = () => {
       <Helmet title={`${process.env.REACT_APP_AUTHORITY_NAME} Kākā Database`} />
       <section>
         <Banner backgroundImage={banner} size="home">
-          <h1 className="mb-4 banner-title">Kākā Database</h1>
+          <div className="banner-title mb-4">
+            <p className="m-0">Welcome to the Orokonui Ecosanctuary</p>
+            <h1 className="m-0">Kākā Database</h1>
+          </div>
           <div className="home-buttons">
             <Link to="/report" className="btn btn-lg btn-primary mr-2 mb-2">
               <i className="fa-fw fas fa-eye mr-1" />

@@ -54,5 +54,11 @@
     background: rgba($dark, 0.85);
     display: inline-block;
     color: $white;
+    h1 {
+      line-height: 0.9;
+    }
+    p {
+      font-size: $font-size-lg;
+    }
   }
 }

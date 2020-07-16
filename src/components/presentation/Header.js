@@ -17,8 +17,7 @@ const Header = ({ onHome }) => {
       <nav className={navClassNames.join(' ')}>
         <div className="container">
           <Link to="/" className="navbar-brand">
-            <img src={logo} alt="Kākā Database" className="pr-3" />
-            Kākā Database
+            <img src={logo} alt="Orokonui Kākā Database" className="pr-3" />
           </Link>
           <button
             className="navbar-toggler"
