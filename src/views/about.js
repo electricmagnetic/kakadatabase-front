@@ -16,6 +16,7 @@ const AboutPage = () => {
       <section className="mb-5">
         <div className="container">
           <Page id={33} hideTitle />
+          <small>Running Kākā Database version {process.env.REACT_APP_VERSION}.</small>
         </div>
       </section>
     </div>
