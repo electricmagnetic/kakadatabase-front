@@ -15,7 +15,7 @@ const ThreatsPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <Page id={65} />
+          <Page id={65} hideTitle />
         </div>
       </section>
     </div>

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-refetch';
+import React from 'react';
 import PropTypes from 'prop-types';
+import useSWR from 'swr';
 
 import Bird from './Bird';
 
@@ -12,19 +12,18 @@ const API_URL = `${process.env.REACT_APP_API_BASE}/birds/`;
 /**
   Birds fetches a series of birds using a given (optional) queryString and renders it using Bird.
   */
-class Birds extends Component {
-  render() {
-    const { birdsFetch, ...others } = this.props;
+const Birds = ({ queryString, ...others }) => {
+  const { data, error, isValidating } = useSWR(`${API_URL}${queryString}`);
 
-    if (birdsFetch.pending) {
-      return <Loader />;
-    } else if (birdsFetch.rejected) {
-      return <Error message="Error fetching birds" />;
-    } else if (birdsFetch.fulfilled) {
-      return birdsFetch.value.map(bird => <Bird bird={bird} key={bird.id} {...others} />);
-    } else return null;
-  }
-}
+  if (isValidating) {
+    return <Loader />;
+  } else if (error) {
+    return <Error message="Error fetching birds" />;
+  } else if (data) {
+    const birds = data;
+    return birds.map(bird => <Bird bird={bird} key={bird.id} {...others} />);
+  } else return null;
+};
 
 Birds.propTypes = {
   type: PropTypes.string.isRequired,
@@ -33,8 +32,7 @@ Birds.propTypes = {
 
 Birds.defaultProps = {
   type: 'card',
+  queryString: '',
 };
 
-export default connect(props => ({
-  birdsFetch: `${API_URL}${props.queryString ? props.queryString : ''}`,
-}))(Birds);
+export default Birds;

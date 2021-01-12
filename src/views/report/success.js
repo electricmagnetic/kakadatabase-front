@@ -31,7 +31,7 @@ const ReportSuccessPage = ({ match }) => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <Page id={44} />
+          <Page id={44} hideTitle />
         </div>
       </section>
     </div>

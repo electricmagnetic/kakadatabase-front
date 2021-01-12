@@ -15,7 +15,7 @@ const LearnPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <Page id={39} />
+          <Page id={39} hideTitle />
         </div>
       </section>
     </div>

@@ -38,10 +38,10 @@ const HomePage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <Page id={22} showTitle />
+              <Page id={22} />
             </div>
             <div className="col-md-6">
-              <Page id={30} showTitle />
+              <Page id={30} />
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <Page id={52} showTitle />
+              <Page id={52} />
             </div>
           </div>
         </div>

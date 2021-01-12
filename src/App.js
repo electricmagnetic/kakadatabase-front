@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { SWRConfig } from 'swr';
+
+import { swrParameters } from './configuration';
 
 import { Header, HomePageHeader } from './components/presentation/Header';
 import Footer from './components/presentation/Footer';
@@ -26,39 +29,41 @@ import NoMatchPage from './views/nomatch';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={HomePageHeader} />
-          <Route component={Header} />
-        </Switch>
-        <main>
+    <SWRConfig value={swrParameters}>
+      <Router>
+        <div className="App">
           <Switch>
-            <Route exact path="/" component={HomePage} />
-
-            <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/legal" component={LegalPage} />
-
-            <Route exact path="/learn" component={LearnPage} />
-            <Route exact path="/learn/threats" component={ThreatsPage} />
-            <Route exact path="/learn/protecting" component={ProtectingPage} />
-
-            <Route exact path="/birds" component={BirdsPage} />
-            <Route exact path="/birds/:slug" component={BirdDetailPage} />
-
-            <Route exact path="/observations" component={ObservationsPage} />
-            <Route exact path="/observations/:slug" component={ObservationDetailPage} />
-
-            <Route exact path="/report" component={ReportPage} />
-            <Route exact path="/report/success" component={ReportSuccessPage} />
-            <Route exact path="/report/success/:slug" component={ReportSuccessPage} />
-
-            <Route component={NoMatchPage} />
+            <Route exact path="/" component={HomePageHeader} />
+            <Route component={Header} />
           </Switch>
-        </main>
-        <Route component={Footer} />
-      </div>
-    </Router>
+          <main>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+
+              <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/legal" component={LegalPage} />
+
+              <Route exact path="/learn" component={LearnPage} />
+              <Route exact path="/learn/threats" component={ThreatsPage} />
+              <Route exact path="/learn/protecting" component={ProtectingPage} />
+
+              <Route exact path="/birds" component={BirdsPage} />
+              <Route exact path="/birds/:slug" component={BirdDetailPage} />
+
+              <Route exact path="/observations" component={ObservationsPage} />
+              <Route exact path="/observations/:slug" component={ObservationDetailPage} />
+
+              <Route exact path="/report" component={ReportPage} />
+              <Route exact path="/report/success" component={ReportSuccessPage} />
+              <Route exact path="/report/success/:slug" component={ReportSuccessPage} />
+
+              <Route component={NoMatchPage} />
+            </Switch>
+          </main>
+          <Route component={Footer} />
+        </div>
+      </Router>
+    </SWRConfig>
   );
 }
 

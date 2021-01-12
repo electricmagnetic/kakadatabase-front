@@ -15,7 +15,7 @@ const ProtectingPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <Page id={68} />
+          <Page id={68} hideTitle />
         </div>
       </section>
     </div>

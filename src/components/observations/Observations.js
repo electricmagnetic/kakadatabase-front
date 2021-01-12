@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-refetch';
+import React from 'react';
 import PropTypes from 'prop-types';
+import useSWR from 'swr';
 
 import Observation from './Observation';
 import ObservationsMap from './Observation/ObservationsMap';
@@ -13,32 +13,33 @@ const API_URL = `${process.env.REACT_APP_API_BASE}/observations/`;
 /**
   Observations fetches a series of observations using a given (optional) queryString and renders it using Observation.
   */
-class Observations extends Component {
-  render() {
-    const { observationsFetch, ...others } = this.props;
+const Observations = ({ queryString, ...others }) => {
+  const { data, error, isValidating } = useSWR(`${API_URL}${queryString}`);
 
-    if (observationsFetch.pending) {
-      return <Loader />;
-    } else if (observationsFetch.rejected) {
-      return <Error message="Error fetching observations" />;
-    } else if (observationsFetch.fulfilled) {
-      const observations = observationsFetch.value.results;
+  if (isValidating) {
+    return <Loader />;
+  } else if (error) {
+    return <Error message="Error fetching observations" />;
+  } else if (data) {
+    const observations = data.results;
 
-      // Intercept type 'map', as this needs rendering as a group on a single map
-      if (this.props.type === 'map')
-        return <ObservationsMap observations={observations} {...others} />;
-      else
-        return observations.map(observation => (
-          <Observation observation={observation} key={observation.id} {...others} />
-        ));
-    } else return null;
-  }
-}
+    // Catch zero observations so map doesn't attempt to render
+    if (observations.length === 0) return null;
+
+    // Intercept type 'map', as this needs rendering as a group on a single map
+    if (others.type === 'map') return <ObservationsMap observations={observations} {...others} />;
+    return observations.map(observation => (
+      <Observation observation={observation} key={observation.id} {...others} />
+    ));
+  } else return null;
+};
 
 Observations.propTypes = {
   queryString: PropTypes.string,
 };
 
-export default connect(props => ({
-  observationsFetch: `${API_URL}${props.queryString ? props.queryString : ''}`,
-}))(Observations);
+Observations.defaultProps = {
+  queryString: '',
+};
+
+export default Observations;

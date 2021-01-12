@@ -15,7 +15,7 @@ const AboutPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <Page id={33} />
+          <Page id={33} hideTitle />
         </div>
       </section>
     </div>

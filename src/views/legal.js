@@ -15,7 +15,7 @@ const LegalPage = () => {
       </section>
       <section className="mb-5">
         <div className="container">
-          <Page id={36} />
+          <Page id={36} hideTitle />
         </div>
       </section>
     </div>
