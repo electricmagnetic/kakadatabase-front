@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import Banner from '../../presentation/Banner';
 import generateSummary from './helpers/generateSummary';
 import getPicture from './helpers/getPicture';
+
+import Banner from '../../presentation/Banner';
 import BirdObservations from '../../observations/BirdObservations';
+
+import Error from '../../helpers/Error';
 
 import './BirdPage.scss';
 
@@ -14,6 +17,7 @@ import './BirdPage.scss';
  */
 const BirdPage = ({ bird }) => {
   const { profile } = bird;
+  const hasObservations = BirdObservations({ queryString: `?bird=${bird.id}` }) ? true : false;
 
   return (
     <div className="BirdPage">
@@ -73,20 +77,26 @@ const BirdPage = ({ bird }) => {
             )}
           </div>
         </div>
-        <section>
+        <section className="mb-5">
           <h2>Recent observations</h2>
-          <section className="mb-3">
-            <BirdObservations queryString={`?bird=${bird.id}`} type="map" />
-          </section>
-          <section className="mb-5">
-            <div className="row">
-              <BirdObservations
-                queryString={`?bird=${bird.id}`}
-                className="col-6 col-sm-4 col-lg-3 mb-3"
-                type="observationCard"
-              />
-            </div>
-          </section>
+          {hasObservations ? (
+            <>
+              <section className="mb-3">
+                <BirdObservations queryString={`?bird=${bird.id}`} type="map" />
+              </section>
+              <section className="mb-5">
+                <div className="row">
+                  <BirdObservations
+                    queryString={`?bird=${bird.id}`}
+                    className="col-6 col-sm-4 col-lg-3 mb-3"
+                    type="observationCard"
+                  />
+                </div>
+              </section>
+            </>
+          ) : (
+            <Error message="No bird observations found" info />
+          )}
         </section>
       </div>
     </div>
