@@ -51,7 +51,7 @@ const Footer = ({ onSubmitPage }) => {
               <div className="footer-attribution my-2">
                 <div className="d-inline-block text-right">
                   <p className="logo">Kākā Database</p>
-                  <p className="version">{process.env.REACT_APP_VERSION}</p>
+                  <p className="version">{`${process.env.REACT_APP_VERSION}-${process.env.REACT_APP_AUTHORITY_ID}`}</p>
                 </div>
               </div>
             </div>

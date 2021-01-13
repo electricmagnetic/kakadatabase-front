@@ -1,3 +1,5 @@
+// SWR
+
 const CACHE_TIME = 24 * 60 * 60 * 1000;
 
 const fetcher = async url => {
