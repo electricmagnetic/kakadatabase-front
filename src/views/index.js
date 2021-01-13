@@ -12,7 +12,7 @@ import banner from '../assets/img/banner.jpg';
 const HomePage = () => {
   return (
     <div className="HomePage">
-      <Helmet title="Kākā Database" />
+      <Helmet title={`${process.env.REACT_APP_AUTHORITY_NAME} Kākā Database`} />
       <section>
         <Banner backgroundImage={banner} size="home">
           <h1 className="mb-4 banner-title">Kākā Database</h1>
