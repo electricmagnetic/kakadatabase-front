@@ -1,8 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { SWRConfig } from 'swr';
 
 import { swrParameters } from './configuration';
+import initGa from './analytics';
+import history from './history';
 
 import { Header, HomePageHeader } from './components/presentation/Header';
 import Footer from './components/presentation/Footer';
@@ -70,10 +72,12 @@ const HomePageContainer = () => {
   );
 };
 
+initGa(history);
+
 function App() {
   return (
     <SWRConfig value={swrParameters}>
-      <Router>
+      <Router history={history}>
         <div className="App">
           <Switch>
             <Route exact path="/" component={HomePageContainer} />
