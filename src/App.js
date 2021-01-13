@@ -27,41 +27,58 @@ import ReportSuccessPage from './views/report/success';
 
 import NoMatchPage from './views/nomatch';
 
+const OtherPagesContainer = () => {
+  return (
+    <>
+      <Header />
+      <main>
+        <div className="constrainer">
+          <Switch>
+            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/legal" component={LegalPage} />
+
+            <Route exact path="/learn" component={LearnPage} />
+            <Route exact path="/learn/threats" component={ThreatsPage} />
+            <Route exact path="/learn/protecting" component={ProtectingPage} />
+
+            <Route exact path="/birds" component={BirdsPage} />
+            <Route exact path="/birds/:slug" component={BirdDetailPage} />
+
+            <Route exact path="/observations" component={ObservationsPage} />
+            <Route exact path="/observations/:slug" component={ObservationDetailPage} />
+
+            <Route exact path="/report" component={ReportPage} />
+            <Route exact path="/report/success" component={ReportSuccessPage} />
+            <Route exact path="/report/success/:slug" component={ReportSuccessPage} />
+
+            <Route component={NoMatchPage} />
+          </Switch>
+        </div>
+      </main>
+    </>
+  );
+};
+
+const HomePageContainer = () => {
+  return (
+    <>
+      <HomePageHeader />
+      <main>
+        <HomePage />
+      </main>
+    </>
+  );
+};
+
 function App() {
   return (
     <SWRConfig value={swrParameters}>
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/" component={HomePageHeader} />
-            <Route component={Header} />
+            <Route exact path="/" component={HomePageContainer} />
+            <Route component={OtherPagesContainer} />
           </Switch>
-          <main>
-            <div className="constrainer">
-              <Switch>
-                <Route exact path="/" component={HomePage} />
-
-                <Route exact path="/about" component={AboutPage} />
-                <Route exact path="/legal" component={LegalPage} />
-
-                <Route exact path="/learn" component={LearnPage} />
-                <Route exact path="/learn/threats" component={ThreatsPage} />
-                <Route exact path="/learn/protecting" component={ProtectingPage} />
-
-                <Route exact path="/birds" component={BirdsPage} />
-                <Route exact path="/birds/:slug" component={BirdDetailPage} />
-
-                <Route exact path="/observations" component={ObservationsPage} />
-                <Route exact path="/observations/:slug" component={ObservationDetailPage} />
-
-                <Route exact path="/report" component={ReportPage} />
-                <Route exact path="/report/success" component={ReportSuccessPage} />
-                <Route exact path="/report/success/:slug" component={ReportSuccessPage} />
-
-                <Route component={NoMatchPage} />
-              </Switch>
-            </div>
-          </main>
           <Route component={Footer} />
         </div>
       </Router>
