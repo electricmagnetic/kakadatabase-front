@@ -71,7 +71,7 @@ class FormComponent extends Component {
 
 /**
   Transforms initial values for the form, based on values provided via the queryString.
-  Casts values as per schema (e.g. "2" -> 2), adds requisite number of birds (if not 'distant'), and tranforms coordinates.
+  Casts values as per schema (e.g. "2" -> 2), adds requisite number of birds (if not 'distant' or 'heard'), and tranforms coordinates.
  */
 const computeInitialValues = props => {
   const { queryString } = props;
@@ -83,7 +83,7 @@ const computeInitialValues = props => {
       coordinates: [initialDetailsValues.longitude, initialDetailsValues.latitude],
     },
     birds:
-      initialDetailsValues.observation_type !== 'distant'
+      initialDetailsValues.observation_type === 'sighted'
         ? Array(initialDetailsValues.number).fill(initialBirdObservationValues)
         : [],
     date_sighted: queryString.date_sighted, // expected as string object, not Date
