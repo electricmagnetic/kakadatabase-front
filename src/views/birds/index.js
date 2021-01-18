@@ -10,18 +10,16 @@ const BirdsPage = props => {
       <Helmet title="Birds" />
       <section className="mb-5">
         <Banner size="small">
-          <h1>Birds</h1>
+          <h1>Search Birds</h1>
         </Banner>
       </section>
       <section className="mb-5">
         <div className="container">
-          <div className="row">
-            <Birds
-              type="card"
-              className="col-6 col-sm-4 col-lg-3 mb-3"
-              queryString="?ordering=profile,name"
-            />
-          </div>
+          <Birds
+            type="search"
+            className="col-6 col-sm-4 col-lg-3 mb-3"
+            queryString="?ordering=profile,name"
+          />
         </div>
       </section>
     </div>
