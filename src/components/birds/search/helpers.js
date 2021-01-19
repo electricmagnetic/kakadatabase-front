@@ -1,5 +1,7 @@
 import { getValidatedTokens } from '../../../nzbbtef/nzbbtef';
 
+import { IS_COLOUR, IS_SYMBOL, IS_NAME, IS_PRIMARY_BAND, IS_AREA } from './constants';
+
 /**
   Takes an array of NZBBTEF tokens and flattens the recursive tokens (e.g. tokenisedSymbolBand)
  */
@@ -95,12 +97,14 @@ const getCriteria = processedBirds => {
 const filterBirds = (birds, selected) =>
   birds.filter(bird =>
     selected.every(criteria => {
-      if (criteria.isColour && bird.colours) return bird.colours.includes(criteria.colour);
-      if (criteria.isSymbol && bird.symbols) return bird.symbols.includes(criteria.symbol);
-      if (criteria.isName && bird.name) return criteria.name === bird.name;
-      if (criteria.isPrimaryBand && bird.primary_band)
+      if (criteria.optionType === IS_COLOUR && bird.colours)
+        return bird.colours.includes(criteria.colour);
+      if (criteria.optionType === IS_SYMBOL && bird.symbols)
+        return bird.symbols.includes(criteria.symbol);
+      if (criteria.optionType === IS_NAME && bird.name) return criteria.name === bird.name;
+      if (criteria.optionType === IS_PRIMARY_BAND && bird.primary_band)
         return criteria.primaryBand === bird.primary_band;
-      if (criteria.isArea && bird.area) return criteria.area === bird.area;
+      if (criteria.optionType === IS_AREA && bird.area) return criteria.area === bird.area;
       return false;
     })
   );

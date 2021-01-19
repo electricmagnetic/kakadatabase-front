@@ -3,52 +3,48 @@ import { Token } from 'react-bootstrap-typeahead';
 
 import colourLibrary from '../../../nzbbtef/colours/library';
 
+import { IS_COLOUR, IS_SYMBOL, IS_NAME, IS_PRIMARY_BAND, IS_AREA } from './constants';
+
 /**
   Generate an omnibus of options suitable for the typeahead
  */
 const generateTypeaheadOptions = criteria => {
-  const optionTypes = {
-    isColour: false,
-    isSymbol: false,
-    isName: false,
-    isPrimaryBand: false,
-    isArea: false,
-  };
-
   return []
     .concat(
       criteria.colours.map(colour =>
-        Object.assign(
-          {},
-          { colour: colour },
-          optionTypes,
-          { isColour: true },
-          colourLibrary[colour]
-        )
+        Object.assign({}, { colour: colour }, { optionType: IS_COLOUR }, colourLibrary[colour])
       )
     )
     .concat(
       criteria.symbols.map(symbol =>
-        Object.assign({}, { symbol: symbol, label: symbol }, optionTypes, { isSymbol: true })
+        Object.assign({}, { symbol: symbol, label: symbol }, { optionType: IS_SYMBOL })
       )
     )
     .concat(
       criteria.names.map(name =>
-        Object.assign({}, { name: name, label: name }, optionTypes, { isName: true })
+        Object.assign({}, { name: name, label: name }, { optionType: IS_NAME })
       )
     )
     .concat(
       criteria.primaryBands.map(primaryBand =>
-        Object.assign({}, { primaryBand: primaryBand, label: primaryBand }, optionTypes, {
-          isPrimaryBand: true,
-        })
+        Object.assign(
+          {},
+          { primaryBand: primaryBand, label: primaryBand },
+          {
+            optionType: IS_PRIMARY_BAND,
+          }
+        )
       )
     )
     .concat(
       criteria.areas.map(area =>
-        Object.assign({}, { area: area, label: area }, optionTypes, {
-          isArea: true,
-        })
+        Object.assign(
+          {},
+          { area: area, label: area },
+          {
+            optionType: IS_AREA,
+          }
+        )
       )
     );
 };
@@ -82,14 +78,14 @@ const generateTypeaheadToken = (option, props, index) => {
         option={option}
         key={index}
         className={
-          (option.isColour && 'token-colour') ||
-          (option.isSymbol && 'token-symbol') ||
-          (option.isName && 'token-name') ||
-          (option.isPrimaryBand && 'token-primaryBand') ||
-          (option.isArea && 'token-area')
+          (option.optionType === IS_COLOUR && 'token-colour') ||
+          (option.optionType === IS_SYMBOL && 'token-symbol') ||
+          (option.optionType === IS_NAME && 'token-name') ||
+          (option.optionType === IS_PRIMARY_BAND && 'token-primaryBand') ||
+          (option.optionType === IS_AREA && 'token-area')
         }
       >
-        {option.isColour ? <ColourBlock colour={option.colour} /> : option.label}
+        {option.optionType === IS_COLOUR ? <ColourBlock colour={option.colour} /> : option.label}
       </Token>
     );
   else
@@ -107,14 +103,14 @@ const generateTypeaheadMenuItemChildren = (option, props, index) => {
   if (option.label)
     return (
       <>
-        {option.isColour ? <ColourBlock colour={option.colour} /> : option.label}
+        {option.optionType === IS_COLOUR ? <ColourBlock colour={option.colour} /> : option.label}
         <small className="ml-2">
           (
-          {(option.isColour && 'Colour') ||
-            (option.isSymbol && 'Symbol') ||
-            (option.isName && 'Name') ||
-            (option.isPrimaryBand && 'Primary Band') ||
-            (option.isArea && 'Area')}
+          {(option.optionType === IS_COLOUR && 'Colour') ||
+            (option.optionType === IS_SYMBOL && 'Symbol') ||
+            (option.optionType === IS_NAME && 'Name') ||
+            (option.optionType === IS_PRIMARY_BAND && 'Primary Band') ||
+            (option.optionType === IS_AREA && 'Area')}
           )
         </small>
       </>
