@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { SWRConfig } from 'swr';
+import { QueryParamProvider } from 'use-query-params';
 
 import { swrParameters } from './configuration';
 import initGa from './analytics';
@@ -78,13 +79,15 @@ function App() {
   return (
     <SWRConfig value={swrParameters}>
       <Router history={history}>
-        <div className="App">
-          <Switch>
-            <Route exact path="/" component={HomePageContainer} />
-            <Route component={OtherPagesContainer} />
-          </Switch>
-          <Route component={Footer} />
-        </div>
+        <QueryParamProvider ReactRouterRoute={Route}>
+          <div className="App">
+            <Switch>
+              <Route exact path="/" component={HomePageContainer} />
+              <Route component={OtherPagesContainer} />
+            </Switch>
+            <Route component={Footer} />
+          </div>
+        </QueryParamProvider>
       </Router>
     </SWRConfig>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Typeahead } from 'react-bootstrap-typeahead';
+import { useQueryParam, JsonParam, withDefault } from 'use-query-params';
 
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { processBirds, getCriteria, filterBirds } from './search/helpers';
@@ -13,12 +14,8 @@ import Bird from './Bird';
 
 import './BirdSearch.scss';
 
-const BirdSearch = ({ birds, ...others }) => {
-  const [selected, setSelected] = useState([]);
-
-  const processedBirds = processBirds(birds);
-  const criteria = getCriteria(processedBirds);
-  const options = generateTypeaheadOptions(criteria);
+const BirdSearch = ({ options, processedBirds, ...others }) => {
+  const [selected, setSelected] = useQueryParam('selected', withDefault(JsonParam, []));
   const filteredBirds =
     selected.length > 0 ? filterBirds(processedBirds, selected) : processedBirds;
 
@@ -58,4 +55,14 @@ const BirdSearch = ({ birds, ...others }) => {
   );
 };
 
-export default BirdSearch;
+const BirdSearchContainer = ({ birds, ...others }) => {
+  const [options, setOptions] = useState([]);
+  const [processedBirds, setProcessedBirds] = useState([]);
+
+  if (processedBirds.length === 0) setProcessedBirds(processBirds(birds));
+  if (options.length === 0) setOptions(generateTypeaheadOptions(getCriteria(processedBirds)));
+
+  return <BirdSearch processedBirds={processedBirds} options={options} {...others} />;
+};
+
+export default BirdSearchContainer;
