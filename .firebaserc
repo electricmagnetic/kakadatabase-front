@@ -5,8 +5,8 @@
   "targets": {
     "kakadatabase-nz": {
       "hosting": {
-        "kakadatabase-nz": [
-          "kakadatabase-nz"
+        "kakadatabase-orokonui-nz": [
+          "kakadatabase-orokonui-nz"
         ]
       }
     }
