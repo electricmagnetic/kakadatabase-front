@@ -37,12 +37,11 @@
     "yup": "^0.32.8"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "s3-deploy './build/**' --cwd './build/' --region ap-southeast-2 --delete-removed --distId XXXX --invalidate '/index.html' --bucket XXXX",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -68,7 +67,6 @@
     "husky": "^3.1.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.2",
-    "s3-deploy": "^1.4.0",
     "sass": "^1.32.4"
   }
 }
