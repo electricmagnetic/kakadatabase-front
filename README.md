@@ -4,17 +4,17 @@ A React-based tool for tracking kākā.
 
 ## Setup
 
-You will need to have Node >= 8 installed (and npm). Then run:  
-`npm install`
+You will need to have Node >= 18 installed (and pnpm). Then run:  
+`pnpm install`
 
 ## Running
 
 To run on your local machine at <http://localhost:3000/> run:  
-`npm start`
+`pnpm start`
 
 ## Building
 
-To build the app for production use, run: `npm run build`
+To build the app for production use, run: `pnpm run build`
 
 ## Documentation
 
@@ -37,14 +37,7 @@ Some basic documentation can be generated using:
 
 ## Deploying
 
-Ensure you have the following:
-
-- The `awscli` Python package installed and configured with id and secret key.
-
-To deploy to Amazon S3 (and hence make available online):  
-`npm run deploy`
-
-**This will automatically build the SCSS and source code, and then invalidate the CloudFront cache.**
+To deploy : `pnpm run deploy`
 
 ## Bug reports
 
@@ -53,7 +46,7 @@ Should be filed on the Kākā Database Trello board (not presently public)
 ## Licence
 
 Kākā Database  
-Copyright (C) 2021 Electric Magnetic Limited
+Copyright (C) 2022 Electric Magnetic Limited
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
