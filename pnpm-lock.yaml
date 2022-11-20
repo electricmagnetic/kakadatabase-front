@@ -9,6 +9,7 @@ specifiers:
   '@testing-library/user-event': ^12.6.0
   bootstrap: ^4.5.3
   classnames: 2.3.2
+  core-js: ^3.26.1
   formik: 2.2.9
   history: 4.9.0
   husky: ^3.1.0
@@ -47,6 +48,7 @@ dependencies:
   '@testing-library/user-event': 12.8.3
   bootstrap: 4.6.2_jquery@3.6.1
   classnames: 2.3.2
+  core-js: 3.26.1
   formik: 2.2.9_react@16.14.0
   history: 4.9.0
   jquery: 3.6.1

@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.6.0",
     "bootstrap": "^4.5.3",
     "classnames": "2.3.2",
+    "core-js": "^3.26.1",
     "formik": "2.2.9",
     "history": "4.9.0",
     "jquery": "3.6.1",
